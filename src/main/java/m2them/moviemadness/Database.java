@@ -33,10 +33,42 @@ public class Database {
     public static ArrayList<Actor> getActors() {
         return new ArrayList<Actor>();
     }
+        //Author Sanjay
+    public static ArrayList<Movie> getMovies(Connection con) {
+        ArrayList<Movie>movies = new ArrayList<>();
+        Statement stmt = null;
 
-    public static ArrayList<Movie> getMovies() {
-        return new ArrayList<Movie>();
-    }
+        try{
+            String getMoviesQuery = "SELECT * FROM tblMovies";
+            stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery(getMoviesQuery);
+
+            while (rs.next()){
+
+                Movie movie = new Movie();
+                movie.setTitle(rs.getString(title));
+                movie.setSummary(rs.getString(summary));
+                movie.setDuration(rs.getString(duration));
+                movie.setRelease(rs.getString(release));
+                movie.setImageURL(rs.getString(imageURL));
+                movie.setTrailerURL(rs.getString(trailerURL));
+
+                movies.add(movie);
+            }
+
+
+        } catch (Exception ex){
+            System.out.println(ex.getClass());
+            ex.printStackTrace();
+        } finally {
+            try {
+                stmt.close();
+                con.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return movies;
 
     public static ArrayList<Cast> getCasts() {
         return new ArrayList<Cast>();

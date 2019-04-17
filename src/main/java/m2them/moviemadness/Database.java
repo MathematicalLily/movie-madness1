@@ -13,15 +13,15 @@ public class Database {
 
 //Author Sanjay
 
-    private Connection connectDB(){
-            Connection con = null;
-        try{
-            class.forName("org.sqlite.JDBC");
+    private Connection connectDB() {
+        Connection con = null;
+        try {
+            Class.forName("org.sqlite.JDBC");
             SQLiteConfig config = new SQLiteConfig();
             config.enforceForeignKeys(true);
-            con = DriverManager.getConnection("jdbc:sqlite:"+"data/MoviesDatabase.db");
+            con = DriverManager.getConnection("jdbc:sqlite:" + "../../../../../../data/MoviesDatabase.db");
             config.toProperties();
-        } catch (Exception ex){
+        } catch (Exception ex) {
             System.out.println(ex.getClass());
             ex.printStackTrace();
         }
@@ -33,17 +33,18 @@ public class Database {
     public static ArrayList<Actor> getActors() {
         return new ArrayList<Actor>();
     }
-        //Author Sanjay
+
+    //Author Sanjay
     public static ArrayList<Movie> getMovies(Connection con) {
-        ArrayList<Movie>movies = new ArrayList<>();
+        ArrayList<Movie> movies = new ArrayList<>();
         Statement stmt = null;
 
-        try{
+        try {
             String getMoviesQuery = "SELECT * FROM tblMovies";
             stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery(getMoviesQuery);
 
-            while (rs.next()){
+            while (rs.next()) {
 
                 Movie movie = new Movie();
                 movie.setTitle(rs.getString("title"));
@@ -57,7 +58,7 @@ public class Database {
             }
 
 
-        } catch (Exception ex){
+        } catch (Exception ex) {
             System.out.println(ex.getClass());
             ex.printStackTrace();
         } finally {
@@ -70,15 +71,18 @@ public class Database {
         }
         return movies;
 
-    public static ArrayList<Cast> getCasts() {
-        return new ArrayList<Cast>();
     }
 
-    public static ArrayList<User> getUsers() {
-        return new ArrayList<User>();
+        public static ArrayList<Cast> getCasts () {
+            return new ArrayList<Cast>();
+        }
+
+        public static ArrayList<User> getUsers () {
+            return new ArrayList<User>();
+        }
+
+        public static ArrayList<Review> getReviews () {
+            return new ArrayList<Review>();
+        }
     }
 
-    public static ArrayList<Review> getReviews() {
-        return new ArrayList<Review>();
-    }
-}

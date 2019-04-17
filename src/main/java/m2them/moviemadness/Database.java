@@ -19,7 +19,7 @@ public class Database {
             Class.forName("org.sqlite.JDBC");
             SQLiteConfig config = new SQLiteConfig();
             config.enforceForeignKeys(true);
-            con = DriverManager.getConnection("jdbc:sqlite:" + "../../../../../../data/MoviesDatabase.db");
+            con = DriverManager.getConnection("jdbc:sqlite:" + "data/MoviesDatabase.db");
             config.toProperties();
         } catch (Exception ex) {
             System.out.println(ex.getClass());
@@ -73,16 +73,24 @@ public class Database {
 
     }
 
-        public static ArrayList<Cast> getCasts () {
-            return new ArrayList<Cast>();
-        }
-
-        public static ArrayList<User> getUsers () {
-            return new ArrayList<User>();
-        }
-
-        public static ArrayList<Review> getReviews () {
-            return new ArrayList<Review>();
-        }
+    public static ArrayList<Cast> getCasts() {
+        return new ArrayList<Cast>();
     }
+
+    public static ArrayList<User> getUsers() {
+        return new ArrayList<User>();
+    }
+
+    public static ArrayList<Review> getReviews() {
+        return new ArrayList<Review>();
+    }
+
+    public static void main(String[] args) {
+
+        Database db = new Database();
+        db.getMovies(db.connectDB());
+
+    }
+
+}
 

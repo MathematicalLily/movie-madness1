@@ -46,8 +46,10 @@ public class Database {
                         rs.getString("actor_id")));
                 actor.setName(rs.getString("actor_name"));
                 actor.setAge(Integer.parseInt(rs.getString("actor_age")));
-                actor.setGender(rs.getString("actor_age"));
+                actor.setGender(rs.getString("actor_gender"));
                 actor.setImageURL(rs.getString("actor_profile_image"));
+
+                actors.add(actor);
 
             }
 
@@ -114,7 +116,7 @@ public class Database {
             Statement stmt = null;
 
             try {
-                String getCastsQuery = "SELECT * FROM tblMovieCasts";
+                String getCastsQuery = "SELECT * FROM tblMovieCast";
                 stmt = con.createStatement();
                 ResultSet rs = stmt.executeQuery(getCastsQuery);
 
@@ -167,10 +169,6 @@ public class Database {
                 user.setJoinDate(rs.getString("user_join_date"));
 
 
-
-
-
-
                 users.add(user);
             }
 
@@ -206,13 +204,8 @@ public class Database {
                 review.setUserID(Integer.parseInt(rs.getString("user_id")));
                 review.setMovieID(Integer.parseInt(rs.getString("movie_id")));
                 review.setComment(rs.getString("review_comment"));
-                review.setRating(Integer.parseInt(rs.getString("review_date")));
+                review.setRating(Integer.parseInt(rs.getString("review_rating")));
                 review.setDate(rs.getString("review_date"));
-
-
-
-
-
 
                 reviews.add(review);
             }

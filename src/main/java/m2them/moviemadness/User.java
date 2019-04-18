@@ -1,5 +1,7 @@
 package m2them.moviemadness;
 
+import java.util.Comparator;
+
 public class User {
 
     private int id, age;
@@ -70,6 +72,67 @@ public class User {
         this.email = email;
         this.joinDate = joinDate;
     }
+    public static Comparator<User> userIdComparator = new Comparator<User>() {
+        @Override
+        public int compare(User u1, User u2) {
+            int user1 = u1.id;
+            int user2 = u2.id;
+            return Integer.compare(user1, user2);
+        }
+    };
+    public static Comparator<User> ageComparator = new Comparator<User>() {
+        @Override
+        public int compare(User u1, User u2) {
+            int user1 = u1.age;
+            int user2 = u2.age;
+
+            return Integer.compare(user1, user2);
+        }
+    };
+    public static Comparator<User> usernameComparator = new Comparator<User>() {
+        @Override
+        public int compare(User u1, User u2) {
+            String user1 = u1.username.toUpperCase();
+            String user2 = u2.username.toUpperCase();
+            return user1.compareTo(user2);
+        }
+    };
+    public static Comparator<User> passwordComparator = new Comparator<User>() {
+        @Override
+        public int compare(User u1, User u2) {
+            String user1 = u1.password.toLowerCase();
+            String user2 = u2.password.toUpperCase();
+
+            return user1.compareTo(user2);
+        }
+    };
+    public static Comparator<User> nameComparator = new Comparator<User>() {
+        @Override
+        public int compare(User u1, User u2) {
+            String user1 = u1.name.toLowerCase();
+            String user2 = u2.name.toUpperCase();
+
+            return user1.compareTo(user2);
+        }
+    };
+    public static Comparator<User> emailComparator = new Comparator<User>() {
+        @Override
+        public int compare(User u1, User u2) {
+            String user1 = u1.email.toLowerCase();
+            String user2 = u2.email.toUpperCase();
+
+            return user1.compareTo(user2);
+        }
+    };
+    public static Comparator<User> joinDateComparator = new Comparator<User>() {
+        @Override
+        public int compare(User u1, User u2) {
+            String user1 = u1.joinDate.toLowerCase();
+            String user2 = u2.joinDate.toUpperCase();
+
+            return user1.compareTo(user2);
+        }
+    };
 
     public User() {
     }

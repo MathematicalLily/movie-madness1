@@ -28,7 +28,7 @@ public class ComparatorTests {
 
         assertEquals(users.get(0).getId(), 1);
 
-        User.userIdComparator.reverse(users);
+        users.sort(User.userIdComparator.reversed());
 
         assertEquals(users.get(0).getId(), 25);
 

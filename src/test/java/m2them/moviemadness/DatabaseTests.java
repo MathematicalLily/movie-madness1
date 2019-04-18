@@ -25,6 +25,50 @@ public class DatabaseTests {
     }
 
     @Test
+    public void testActorsReceived() {
+
+        ArrayList<Actor> actors = Database.getActors(Database.connectDB());
+
+        assertNotNull(actors);
+
+        assertNotEquals(actors.size(), 0);
+
+    }
+
+    @Test
+    public void testUsersReceived() {
+
+        ArrayList<User> users = Database.getUsers(Database.connectDB());
+
+        assertNotNull(users);
+
+        assertNotEquals(users.size(), 0);
+
+    }
+
+    @Test
+    public void testCastReceived() {
+
+        ArrayList<Cast> casts = Database.getCasts(Database.connectDB());
+
+        assertNotNull(casts);
+
+        assertNotEquals(casts.size(), 0);
+
+    }
+
+    @Test
+    public void testReviewsReceived() {
+
+        ArrayList<Review> reviews = Database.getReviews(Database.connectDB());
+
+        assertNotNull(reviews);
+
+        assertNotEquals(reviews.size(), 0);
+
+    }
+
+    @Test
     public void testMovieContents() {
 
         Movie fromDB = Database.getMovies(Database.connectDB()).get(0);
@@ -45,6 +89,22 @@ public class DatabaseTests {
         assertEquals(fromDB.getImageURL(), hellboy.getImageURL());
         assertEquals(fromDB.getTrailerURL(), hellboy.getTrailerURL());
 
+    }
+
+    @Test
+    public void testActorContents() {
+
+        Actor fromDB = Database.getActors(Database.connectDB()).get(0);
+
+        Actor bLarson = new Actor(1, 29,
+                "Brie Larson", "Female",
+                "http://www.gstatic.com/tv/thumb/persons/230638/230638_v9_ba.jpg");
+
+        assertEquals(fromDB.getId(), bLarson.getId());
+        assertEquals(fromDB.getAge(), bLarson.getAge());
+        assertEquals(fromDB.getName(), bLarson.getName());
+        assertEquals(fromDB.getGender(), bLarson.getGender());
+        assertEquals(fromDB.getImageURL(), bLarson.getImageURL());
     }
 
 }

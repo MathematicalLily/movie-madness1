@@ -13,7 +13,7 @@ public class Database {
 
 //Author Sanjay
 
-    private Connection connectDB() {
+    static Connection connectDB() {
         Connection con = null;
         try {
             Class.forName("org.sqlite.JDBC");
@@ -86,13 +86,6 @@ public class Database {
 
     public static ArrayList<Review> getReviews() {
         return new ArrayList<Review>();
-    }
-
-    public static void main(String[] args) {
-
-        Database db = new Database();
-        db.getMovies(db.connectDB());
-
     }
 
 }

@@ -6,6 +6,9 @@ public class Movie {
     private String title, summary, duration,
             genre, release, imageURL, trailerURL;
 
+    public Movie() {
+    }
+
     public int getId() {
         return id;
     }

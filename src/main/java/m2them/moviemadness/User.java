@@ -4,16 +4,15 @@ import java.util.Comparator;
 
 public class User {
 
-    private static int userId;
-    private int age;
+    private int id, age;
     private String username, password, name, email, joinDate;
 
     public int getId() {
-        return userId;
+        return id;
     }
 
     public void setId(int id) {
-        this.userId = id;
+        this.id = id;
     }
 
     public int getAge() {
@@ -64,8 +63,8 @@ public class User {
         this.joinDate = joinDate;
     }
 
-    public User(int userId, int age, String username, String password, String name, String email, String joinDate) {
-        this.userId = userId;
+    public User(int id, int age, String username, String password, String name, String email, String joinDate) {
+        this.id = id;
         this.age = age;
         this.username = username;
         this.password = password;
@@ -76,8 +75,8 @@ public class User {
     public static Comparator<User> userIdComparator = new Comparator<User>() {
         @Override
         public int compare(User u1, User u2) {
-            int user1 = u1.userId;
-            int user2 = u2.userId;
+            int user1 = u1.id;
+            int user2 = u2.id;
             return Integer.compare(user1, user2);
         }
     };
@@ -135,4 +134,6 @@ public class User {
         }
     };
 
+    public User() {
+    }
 }

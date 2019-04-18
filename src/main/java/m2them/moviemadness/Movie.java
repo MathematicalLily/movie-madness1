@@ -1,28 +1,31 @@
 package m2them.moviemadness;
+import java.util.Comparator;
+
+//author Lily
 
 public class Movie {
 
-    private int id;
-    private String title, summary, duration,
-            genre, release, imageURL, trailerURL;
+    private int movieId;
+    private String movieTitle, summary, movieDuration,
+            movieGenre, movieRelease, movieImageURL, movieTrailerURL;
 
     public Movie() {
     }
 
     public int getId() {
-        return id;
+        return movieId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setId(int movieId) {
+        this.movieId = movieId;
     }
 
     public String getTitle() {
-        return title;
+        return movieTitle;
     }
 
     public void setTitle(String title) {
-        this.title = title;
+        this.movieTitle = title;
     }
 
     public String getSummary() {
@@ -34,53 +37,131 @@ public class Movie {
     }
 
     public String getDuration() {
-        return duration;
+        return movieDuration;
     }
 
     public void setDuration(String duration) {
-        this.duration = duration;
+        this.movieDuration = duration;
     }
 
     public String getGenre() {
-        return genre;
+        return movieGenre;
     }
 
     public void setGenre(String genre) {
-        this.genre = genre;
+        this.movieGenre = genre;
     }
 
     public String getRelease() {
-        return release;
+        return movieRelease;
     }
 
     public void setRelease(String release) {
-        this.release = release;
+        this.movieRelease = release;
     }
 
     public String getImageURL() {
-        return imageURL;
+        return movieImageURL;
     }
 
     public void setImageURL(String imageURL) {
-        this.imageURL = imageURL;
+        this.movieImageURL = imageURL;
     }
 
     public String getTrailerURL() {
-        return trailerURL;
+        return movieTrailerURL;
     }
 
     public void setTrailerURL(String trailerURL) {
-        this.trailerURL = trailerURL;
+        this.movieTrailerURL = trailerURL;
     }
 
-    public Movie(int id, String title, String summary, String duration, String genre, String release, String imageURL, String trailerURL) {
-        this.id = id;
-        this.title = title;
+    public Movie(int movieId, String title, String summary, String duration, String genre, String release, String imageURL, String trailerURL) {
+        this.movieId = movieId;
+        this.movieTitle = title;
         this.summary = summary;
-        this.duration = duration;
-        this.genre = genre;
-        this.release = release;
-        this.imageURL = imageURL;
-        this.trailerURL = trailerURL;
+        this.movieDuration = duration;
+        this.movieGenre = genre;
+        this.movieRelease= release;
+        this.movieImageURL = imageURL;
+        this.movieTrailerURL = trailerURL;
     }
-}
+
+
+     public static Comparator<Movie> idComparator = new Comparator<Movie>() {
+         @Override
+         public int compare(Movie m1, Movie m2) {
+             int movie1 = m1.movieId;
+             int movie2 = m2.movieId;
+             return Integer.compare(movie1, movie2);
+         }
+     };
+
+         public static Comparator<Movie> titleComparator = new Comparator<Movie>() {
+             @Override
+             public int compare(Movie m1, Movie m2) {
+                 String movie1 = m1.movieTitle.toLowerCase();
+                 String movie2 = m2.movieTitle.toUpperCase();
+                 return movie1.compareTo(movie2);
+             }
+         };
+
+         public static Comparator<Movie> summaryComparator = new Comparator<Movie>() {
+             @Override
+
+             public int compare(Movie m1, Movie m2) {
+                 String movie1 = m1.summary.toLowerCase();
+                 String movie2 = m2.summary.toUpperCase();
+                 return movie1.compareTo(movie2);
+             }
+         };
+
+         public static Comparator<Movie> durationComparator = new Comparator<Movie>() {
+             @Override
+             public int compare(Movie m1, Movie m2) {
+                 String movie1 = m1.movieDuration;
+                 String movie2 = m2.movieDuration;
+                 return movie1.compareTo(movie2);
+             }
+         };
+
+             public static Comparator <Movie> genreComparator = new Comparator<Movie>() {
+                 @Override
+                 public int compare(Movie m1, Movie m2) {
+                     String movie1 = m1.movieGenre;
+                     String movie2 = m2.movieGenre;
+                     return movie1.compareTo(movie2);
+                 }
+             };
+
+              public static Comparator <Movie> releaseComparator = new Comparator<Movie>() {
+                  @Override
+                  public int compare(Movie m1, Movie m2) {
+                      String movie1 = m1.movieRelease;
+                      String movie2 = m2.movieRelease;
+                      return movie1.compareTo(movie2);
+                  }
+              };
+
+    public static Comparator <Movie> ImageURLComparator = new Comparator<Movie>() {
+        @Override
+        public int compare(Movie m1, Movie m2) {
+            String movie1 = m1.movieImageURL;
+            String movie2 = m2.movieImageURL;
+            return movie1.compareTo(movie2);
+        }
+    };
+
+    public static Comparator <Movie> TrailerURLComparator = new Comparator<Movie>() {
+        @Override
+        public int compare(Movie m1, Movie m2) {
+            String movie1 = m1.movieTrailerURL;
+            String movie2 = m2.movieTrailerURL;
+            return movie1.compareTo(movie2);
+        }
+    };
+                      }
+
+
+
+

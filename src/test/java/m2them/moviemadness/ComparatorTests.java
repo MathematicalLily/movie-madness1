@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class ComparatorTests {
 
-    @Test
+    /*@Test
     void movieCompareTest() {
 
         ArrayList<Movie> movies = Database.getMovies(Database.connectDB());
@@ -19,16 +19,16 @@ public class ComparatorTests {
 
         assertEquals(movies.get(0).getId(), 5);
 
-    }
+    } */
 
     @Test
-    void userCompareTest() {
+    public void userCompareTest() {
 
         ArrayList<User> users = Database.getUsers(Database.connectDB());
 
         assertEquals(users.get(0).getId(), 1);
 
-        users.sort(User.idComparator);
+        User.userIdComparator.reverse(users);
 
         assertEquals(users.get(0).getId(), 25);
 

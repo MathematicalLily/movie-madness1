@@ -72,6 +72,9 @@ public class User {
         this.email = email;
         this.joinDate = joinDate;
     }
+    public User() {
+    }
+
     public static Comparator<User> userIdComparator = new Comparator<User>() {
         @Override
         public int compare(User u1, User u2) {
@@ -134,6 +137,5 @@ public class User {
         }
     };
 
-    public User() {
-    }
+
 }

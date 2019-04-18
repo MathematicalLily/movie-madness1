@@ -1,5 +1,7 @@
 package m2them.moviemadness;
 
+import java.util.Comparator;
+
 public class Actor {
 
     private int id, age;
@@ -55,4 +57,44 @@ public class Actor {
 
     public Actor() {
     }
+    public static Comparator<Actor> idComparator = new Comparator<Actor>() {
+        @Override
+        public int compare(Actor a1, Actor a2) {
+            int actor1 = a1.id;
+            int actor2 = a2.id;
+            return Integer.compare(actor1, actor2);
+        }
+    };
+    public static Comparator<Actor> ageComparator = new Comparator<Actor>() {
+        @Override
+        public int compare(Actor a1, Actor a2) {
+            int actor1 = a1.age;
+            int actor2 = a2.age;
+            return Integer.compare(actor1, actor2);
+        }
+    };
+    public static Comparator<Actor> nameComparator = new Comparator<Actor>() {
+        @Override
+        public int compare(Actor a1, Actor a2) {
+            String actor1 = a1.name.toLowerCase();
+            String actor2 = a2.name.toUpperCase();
+            return actor1.compareTo(actor2);
+        }
+    };
+    public static Comparator<Actor> genderComparator = new Comparator<Actor>() {
+        @Override
+        public int compare(Actor a1, Actor a2) {
+            String actor1 = a1.gender.toUpperCase();
+            String actor2 = a2.gender.toUpperCase();
+            return actor1.compareTo(actor2);
+        }
+    };
+    public static Comparator<Actor> imgURLComparator = new Comparator<Actor>() {
+        @Override
+        public int compare(Actor a1, Actor a2) {
+            String actor1 = a1.imageURL.toLowerCase();
+            String actor2 = a2.imageURL.toUpperCase();
+            return actor1.compareTo(actor2);
+        }
+    };
 }

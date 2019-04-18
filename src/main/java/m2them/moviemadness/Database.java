@@ -47,12 +47,15 @@ public class Database {
             while (rs.next()) {
 
                 Movie movie = new Movie();
-                movie.setTitle(rs.getString("title"));
-                movie.setSummary(rs.getString("summary"));
-                movie.setDuration(rs.getString("duration"));
-                movie.setRelease(rs.getString("release"));
-                movie.setImageURL(rs.getString("imageURL"));
-                movie.setTrailerURL(rs.getString("trailerURL"));
+                movie.setId(Integer.parseInt(
+                        rs.getString("movie_id")));
+                movie.setTitle(rs.getString("movie_title"));
+                movie.setSummary(rs.getString("movie_summary"));
+                movie.setDuration(rs.getString("movie_duration"));
+                movie.setGenre(rs.getString("movie_genre"));
+                movie.setRelease(rs.getString("movie_release_date"));
+                movie.setImageURL(rs.getString("movie_cover_image"));
+                movie.setTrailerURL(rs.getString("movie_trailer"));
 
                 movies.add(movie);
             }

@@ -61,4 +61,7 @@ public class Review {
         this.comment = comment;
         this.date = date;
     }
+
+    public Review() {
+    }
 }

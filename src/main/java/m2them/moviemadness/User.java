@@ -70,4 +70,7 @@ public class User {
         this.email = email;
         this.joinDate = joinDate;
     }
+
+    public User() {
+    }
 }

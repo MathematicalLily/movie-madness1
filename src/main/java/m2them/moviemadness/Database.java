@@ -13,7 +13,7 @@ public class Database {
 
 //Author Sanjay
 
-    private Connection connectDB() {
+    private static Connection connectDB() {
         Connection con = null;
         try {
             Class.forName("org.sqlite.JDBC");
@@ -30,8 +30,40 @@ public class Database {
     }
 
 
-    public static ArrayList<Actor> getActors() {
-        return new ArrayList<Actor>();
+    public static ArrayList<Actor> getActors(Connection con) {
+        ArrayList<Actor> actors = new ArrayList<>();
+        Statement stmt = null;
+
+        try {
+            String getActorsQuery = "SELECT * FROM tblActors";
+            stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery(getActorsQuery);
+
+            while (rs.next()) {
+
+                Actor actor = new Actor();
+                actor.setId(Integer.parseInt(
+                        rs.getString("actor_id")));
+                actor.setName(rs.getString("actor_name"));
+                actor.setAge(Integer.parseInt(rs.getString("actor_age")));
+                actor.setGender(rs.getString("actor_age"));
+                actor.setImageURL(rs.getString("actor_profile_image"));
+
+            }
+
+
+        } catch (Exception ex) {
+            System.out.println(ex.getClass());
+            ex.printStackTrace();
+        } finally {
+            try {
+                stmt.close();
+                con.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return actors;
     }
 
     //Author Sanjay
@@ -76,16 +108,128 @@ public class Database {
 
     }
 
-    public static ArrayList<Cast> getCasts() {
-        return new ArrayList<Cast>();
+//Sanjay
+        public static ArrayList<Cast> getCasts(Connection con) {
+            ArrayList<Cast> casts = new ArrayList<>();
+            Statement stmt = null;
+
+            try {
+                String getCastsQuery = "SELECT * FROM tblMovieCasts";
+                stmt = con.createStatement();
+                ResultSet rs = stmt.executeQuery(getCastsQuery);
+
+                while (rs.next()) {
+
+                    Cast cast = new Cast();
+                    cast.setId(Integer.parseInt(
+                            rs.getString("movie_cast_id")));
+                    cast.setMovieID(Integer.parseInt(rs.getString("movie_id")));
+                    cast.setActorID(Integer.parseInt(rs.getString("actor_id")));
+
+
+                    casts.add(cast);
+                }
+
+
+            } catch (Exception ex) {
+                System.out.println(ex.getClass());
+                ex.printStackTrace();
+            } finally {
+                try {
+                    stmt.close();
+                    con.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+            return casts;
     }
 
-    public static ArrayList<User> getUsers() {
-        return new ArrayList<User>();
+    public static ArrayList<User> getUsers(Connection con) {
+        ArrayList<User> users = new ArrayList<>();
+        Statement stmt = null;
+
+        try {
+            String getUsersQuery = "SELECT * FROM tblUsers";
+            stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery(getUsersQuery);
+
+            while (rs.next()) {
+
+                User user = new User();
+                user.setId(Integer.parseInt(
+                        rs.getString("user_id")));
+                user.setUsername(rs.getString("username"));
+                user.setPassword(rs.getString("password"));
+                user.setName(rs.getString("user_name"));
+                user.setAge(Integer.parseInt(rs.getString("user_age")));
+                user.setEmail(rs.getString("user_email"));
+                user.setJoinDate(rs.getString("user_join_date"));
+
+
+
+
+
+
+                users.add(user);
+            }
+
+
+        } catch (Exception ex) {
+            System.out.println(ex.getClass());
+            ex.printStackTrace();
+        } finally {
+            try {
+                stmt.close();
+                con.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return users;
     }
 
-    public static ArrayList<Review> getReviews() {
-        return new ArrayList<Review>();
+    public static ArrayList<Review> getReviews(Connection con) {
+        ArrayList<Review> reviews = new ArrayList<>();
+        Statement stmt = null;
+
+        try {
+            String getReviewsQuery = "SELECT * FROM tblReviews";
+            stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery(getReviewsQuery);
+
+            while (rs.next()) {
+
+                Review review = new Review();
+                review.setId(Integer.parseInt(
+                        rs.getString("review_id")));
+                review.setUserID(Integer.parseInt(rs.getString("user_id")));
+                review.setMovieID(Integer.parseInt(rs.getString("movie_id")));
+                review.setComment(rs.getString("review_comment"));
+                review.setRating(Integer.parseInt(rs.getString("review_date")));
+                review.setDate(rs.getString("review_date"));
+
+
+
+
+
+
+                reviews.add(review);
+            }
+
+
+        } catch (Exception ex) {
+            System.out.println(ex.getClass());
+            ex.printStackTrace();
+        } finally {
+            try {
+                stmt.close();
+                con.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return reviews;
     }
 
     public static void main(String[] args) {

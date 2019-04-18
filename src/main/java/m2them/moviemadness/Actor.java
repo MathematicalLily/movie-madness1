@@ -52,4 +52,7 @@ public class Actor {
         this.gender = gender;
         this.imageURL = imageURL;
     }
+
+    public Actor() {
+    }
 }

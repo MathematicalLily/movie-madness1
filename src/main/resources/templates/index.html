@@ -70,20 +70,20 @@ gi
     <article  id="movie-display-section" class="projects-section bg-light">
         <div class="container">
            <section class="row d-flex h-100 align-items-center container bg-light">
-                <div class="mx-auto text-center col-lg-9 order-lg-first">
+                <div class="mx-auto text-center col-lg-3 order-lg-first">
                   <h2> Movies</h2>
                 </div>
-                <div class="col-lg-6 order-lg-first">
+                <div class="col-lg-3 order-lg-first">
                  <label>Order Movies by:</label>
 
                   <form action="#" th:action="@{/#main-content-div}" method="post" th:object="${sortType}">
-                    <select class="custom-select custom-select-lg mb-3" th:field="*{sortType}">
+                    <select onchange="this.form.submit()" class="custom-select custom-select-lg mb-3" th:field="*{sortType}">
                        <option selected th:value="1">Title: A-Z</option>
                        <option th:value="2">Title: Z-A</option>
                        <option th:value="3">Release Date: Most Recent</option>
                        <option th:value="4">Release Date: Old to New</option>
                     </select>
-                    <button type="submit" class="btn btn-default">Sort</button>
+                    <button type="submit" class="btn btn-primary js-scroll-trigger">Sort</button>
                   </form>
 
                 </div>

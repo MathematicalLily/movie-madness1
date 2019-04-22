@@ -8,12 +8,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.ArrayList;
 
-@Controller
+@Controller()
 public class MovieController {
 
     @GetMapping({"/index", "/"})
     public String moviesIndex(Model model){
         ArrayList<Movie> movies = Database.getMovies(Database.connectDB());
+        movies.sort(Movie.titleComparator);
         model.addAttribute("movies", movies);
         return "index";
         }

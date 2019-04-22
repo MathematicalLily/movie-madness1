@@ -102,7 +102,7 @@ public class Review {
         @Override
         public int compare(Review r1, Review r2) {
             String review1 = r1.comment.toLowerCase();
-            String review2 = r2.comment.toUpperCase();
+            String review2 = r2.comment.toLowerCase();
             return review1.compareTo(review2);
         }
     };
@@ -110,7 +110,7 @@ public class Review {
         @Override
         public int compare(Review r1, Review r2) {
             String review1 = r1.date.toLowerCase();
-            String review2 = r2.date.toUpperCase();
+            String review2 = r2.date.toLowerCase();
             return review1.compareTo(review2);
         }
     };

@@ -77,15 +77,15 @@ public class Actor {
         @Override
         public int compare(Actor a1, Actor a2) {
             String actor1 = a1.name.toLowerCase();
-            String actor2 = a2.name.toUpperCase();
+            String actor2 = a2.name.toLowerCase();
             return actor1.compareTo(actor2);
         }
     };
     public static Comparator<Actor> genderComparator = new Comparator<Actor>() {
         @Override
         public int compare(Actor a1, Actor a2) {
-            String actor1 = a1.gender.toUpperCase();
-            String actor2 = a2.gender.toUpperCase();
+            String actor1 = a1.gender.toLowerCase();
+            String actor2 = a2.gender.toLowerCase();
             return actor1.compareTo(actor2);
         }
     };
@@ -93,7 +93,7 @@ public class Actor {
         @Override
         public int compare(Actor a1, Actor a2) {
             String actor1 = a1.imageURL.toLowerCase();
-            String actor2 = a2.imageURL.toUpperCase();
+            String actor2 = a2.imageURL.toLowerCase();
             return actor1.compareTo(actor2);
         }
     };

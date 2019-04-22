@@ -1,4 +1,5 @@
 package m2them.moviemadness;
+
 import java.util.Comparator;
 
 //author Lily
@@ -82,68 +83,68 @@ public class Movie {
         this.summary = summary;
         this.movieDuration = duration;
         this.movieGenre = genre;
-        this.movieRelease= release;
+        this.movieRelease = release;
         this.movieImageURL = imageURL;
         this.movieTrailerURL = trailerURL;
     }
 
 
-     public static Comparator<Movie> idComparator = new Comparator<Movie>() {
-         @Override
-         public int compare(Movie m1, Movie m2) {
-             int movie1 = m1.movieId;
-             int movie2 = m2.movieId;
-             return Integer.compare(movie1, movie2);
-         }
-     };
+    public static Comparator<Movie> idComparator = new Comparator<Movie>() {
+        @Override
+        public int compare(Movie m1, Movie m2) {
+            int movie1 = m1.movieId;
+            int movie2 = m2.movieId;
+            return Integer.compare(movie1, movie2);
+        }
+    };
 
-         public static Comparator<Movie> titleComparator = new Comparator<Movie>() {
-             @Override
-             public int compare(Movie m1, Movie m2) {
-                 String movie1 = m1.movieTitle.toLowerCase();
-                 String movie2 = m2.movieTitle.toUpperCase();
-                 return movie1.compareTo(movie2);
-             }
-         };
+    public static Comparator<Movie> titleComparator = new Comparator<Movie>() {
+        @Override
+        public int compare(Movie m1, Movie m2) {
+            String movie1 = m1.movieTitle.toLowerCase();
+            String movie2 = m2.movieTitle.toLowerCase();
+            return movie1.compareTo(movie2);
+        }
+    };
 
-         public static Comparator<Movie> summaryComparator = new Comparator<Movie>() {
-             @Override
+    public static Comparator<Movie> summaryComparator = new Comparator<Movie>() {
+        @Override
 
-             public int compare(Movie m1, Movie m2) {
-                 String movie1 = m1.summary.toLowerCase();
-                 String movie2 = m2.summary.toUpperCase();
-                 return movie1.compareTo(movie2);
-             }
-         };
+        public int compare(Movie m1, Movie m2) {
+            String movie1 = m1.summary.toLowerCase();
+            String movie2 = m2.summary.toLowerCase();
+            return movie1.compareTo(movie2);
+        }
+    };
 
-         public static Comparator<Movie> durationComparator = new Comparator<Movie>() {
-             @Override
-             public int compare(Movie m1, Movie m2) {
-                 String movie1 = m1.movieDuration;
-                 String movie2 = m2.movieDuration;
-                 return movie1.compareTo(movie2);
-             }
-         };
+    public static Comparator<Movie> durationComparator = new Comparator<Movie>() {
+        @Override
+        public int compare(Movie m1, Movie m2) {
+            String movie1 = m1.movieDuration;
+            String movie2 = m2.movieDuration;
+            return movie1.compareTo(movie2);
+        }
+    };
 
-             public static Comparator <Movie> genreComparator = new Comparator<Movie>() {
-                 @Override
-                 public int compare(Movie m1, Movie m2) {
-                     String movie1 = m1.movieGenre;
-                     String movie2 = m2.movieGenre;
-                     return movie1.compareTo(movie2);
-                 }
-             };
+    public static Comparator<Movie> genreComparator = new Comparator<Movie>() {
+        @Override
+        public int compare(Movie m1, Movie m2) {
+            String movie1 = m1.movieGenre;
+            String movie2 = m2.movieGenre;
+            return movie1.compareTo(movie2);
+        }
+    };
 
-              public static Comparator <Movie> releaseComparator = new Comparator<Movie>() {
-                  @Override
-                  public int compare(Movie m1, Movie m2) {
-                      String movie1 = m1.movieRelease;
-                      String movie2 = m2.movieRelease;
-                      return movie1.compareTo(movie2);
-                  }
-              };
+    public static Comparator<Movie> releaseComparator = new Comparator<Movie>() {
+        @Override
+        public int compare(Movie m1, Movie m2) {
+            String movie1 = m1.movieRelease;
+            String movie2 = m2.movieRelease;
+            return movie1.compareTo(movie2);
+        }
+    };
 
-    public static Comparator <Movie> ImageURLComparator = new Comparator<Movie>() {
+    public static Comparator<Movie> ImageURLComparator = new Comparator<Movie>() {
         @Override
         public int compare(Movie m1, Movie m2) {
             String movie1 = m1.movieImageURL;
@@ -152,7 +153,7 @@ public class Movie {
         }
     };
 
-    public static Comparator <Movie> TrailerURLComparator = new Comparator<Movie>() {
+    public static Comparator<Movie> TrailerURLComparator = new Comparator<Movie>() {
         @Override
         public int compare(Movie m1, Movie m2) {
             String movie1 = m1.movieTrailerURL;
@@ -160,7 +161,7 @@ public class Movie {
             return movie1.compareTo(movie2);
         }
     };
-                      }
+}
 
 
 

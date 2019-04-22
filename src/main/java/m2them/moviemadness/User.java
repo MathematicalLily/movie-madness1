@@ -95,8 +95,8 @@ public class User {
     public static Comparator<User> usernameComparator = new Comparator<User>() {
         @Override
         public int compare(User u1, User u2) {
-            String user1 = u1.username.toUpperCase();
-            String user2 = u2.username.toUpperCase();
+            String user1 = u1.username.toLowerCase();
+            String user2 = u2.username.toLowerCase();
             return user1.compareTo(user2);
         }
     };
@@ -104,7 +104,7 @@ public class User {
         @Override
         public int compare(User u1, User u2) {
             String user1 = u1.password.toLowerCase();
-            String user2 = u2.password.toUpperCase();
+            String user2 = u2.password.toLowerCase();
 
             return user1.compareTo(user2);
         }
@@ -113,7 +113,7 @@ public class User {
         @Override
         public int compare(User u1, User u2) {
             String user1 = u1.name.toLowerCase();
-            String user2 = u2.name.toUpperCase();
+            String user2 = u2.name.toLowerCase();
 
             return user1.compareTo(user2);
         }
@@ -122,7 +122,7 @@ public class User {
         @Override
         public int compare(User u1, User u2) {
             String user1 = u1.email.toLowerCase();
-            String user2 = u2.email.toUpperCase();
+            String user2 = u2.email.toLowerCase();
 
             return user1.compareTo(user2);
         }
@@ -131,7 +131,7 @@ public class User {
         @Override
         public int compare(User u1, User u2) {
             String user1 = u1.joinDate.toLowerCase();
-            String user2 = u2.joinDate.toUpperCase();
+            String user2 = u2.joinDate.toLowerCase();
 
             return user1.compareTo(user2);
         }

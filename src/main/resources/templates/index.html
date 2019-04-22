@@ -70,16 +70,23 @@ gi
     <article  id="movie-display-section" class="projects-section bg-light">
         <div class="container">
            <section class="row d-flex h-100 align-items-center container bg-light">
-                <div class="mx-auto text-center col-lg-6 order-lg-first">
+                <div class="mx-auto text-center col-lg-9 order-lg-first">
                   <h2> Movies</h2>
                 </div>
-                <div class="col-lg-6 order-lg-first">
-                 <label>Order Movies by:</label>
-                 <select class="custom-select custom-select-lg mb-3">
-                     <option selected value="1">Title: A-Z</option>
-                     <option value="2">Release Date: Most Recent</option>
-                     <option value="3">Rating: Highest to Lowest</option>
-                 </select>
+                <div class="col-lg-3 order-lg-first">
+                    <label>Order Movies by:</label>
+                    <select id="selectSort" class="custom-select custom-select-lg">
+                        <option selected="selected" value="1">Title: A-Z</option>
+                        <option value="1">Title: Z-A</option>
+                        <option value="2">Release Date: Most Recent</option>
+                        <option value="3">Release Date: Old to New</option>
+                        <option value="4">Rating: Highest to Lowest</option>
+                        <option value="5">Rating: Lowest to Highest</option>
+
+
+                     </select>
+                     <br/>
+                     <button onclick="GetSelectedSortMethod('select1')">Sort</button>
                 </div>
            </section>
         </div>

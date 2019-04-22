@@ -28,7 +28,7 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav" href="#page-top">
     <div class="container">
-      <a class="navbar-brand ajs-scroll-trigger" href="index">[m2them]</a>
+      <a class="navbar-brand ajs-scroll-trigger" href="/">[m2them]</a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         Menu
         <i class="fas fa-bars"></i>
@@ -75,11 +75,16 @@ gi
                 </div>
                 <div class="col-lg-6 order-lg-first">
                  <label>Order Movies by:</label>
-                 <select class="custom-select custom-select-lg mb-3">
-                     <option selected value="1">Title: A-Z</option>
-                     <option value="2">Release Date: Most Recent</option>
-                     <option value="3">Rating: Highest to Lowest</option>
-                 </select>
+
+                  <form action="#" th:action="@{/}" method="post" th:object="${sortType}">
+                    <select class="custom-select custom-select-lg mb-3" th:field="*{sortType}">
+                       <option selected th:value="1">Title: A-Z</option>
+                       <option th:value="2">Title: Z-A</option>
+                       <option th:value="3">Release Date: Most Recent</option>
+                    </select>
+                    <input name="submit" value="submit" type="submit">
+                  </form>
+
                 </div>
            </section>
         </div>

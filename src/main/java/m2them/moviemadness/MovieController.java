@@ -33,6 +33,9 @@ public class MovieController {
                 case 3:
                     movies.sort(Movie.releaseComparator);
                     break;
+                case 4:
+                    movies.sort(Movie.releaseComparator.reversed());
+                    break;
             }
             model.addAttribute("movies", movies);
             return "index";

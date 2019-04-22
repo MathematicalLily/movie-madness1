@@ -11,7 +11,7 @@ import java.util.ArrayList;
 @Controller
 public class MovieController {
 
-    @GetMapping("/index")
+    @GetMapping({"/index", "/"})
     public String moviesIndex(Model model){
         ArrayList<Movie> movies = Database.getMovies(Database.connectDB());
         model.addAttribute("movies", movies);

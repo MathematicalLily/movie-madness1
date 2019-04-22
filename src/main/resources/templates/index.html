@@ -62,18 +62,27 @@
       </div>
     </div>
   </header>
-
+gi
   <!-- main content -->
   <main id="main-content-div">
 
   <!-- movies article -->
     <article  id="movie-display-section" class="projects-section bg-light">
-
-      <section class="container d-flex h-100 align-items-center">
-        <div class="mx-auto text-center">
-          <h2> Movies</h2>
+        <div class="container">
+           <section class="row d-flex h-100 align-items-center container bg-light">
+                <div class="mx-auto text-center col-lg-6 order-lg-first">
+                  <h2> Movies</h2>
+                </div>
+                <div class="col-lg-6 order-lg-first">
+                 <label>Order Movies by:</label>
+                 <select class="custom-select custom-select-lg mb-3">
+                     <option selected value="1">Title: A-Z</option>
+                     <option value="2">Release Date: Most Recent</option>
+                     <option value="3">Rating: Highest to Lowest</option>
+                 </select>
+                </div>
+           </section>
         </div>
-      </section>
 
       <!-- movies section, the movie object that will be repeated for every instance-->
       <section th:each="movie:${movies}" id="" class="container bg-light">

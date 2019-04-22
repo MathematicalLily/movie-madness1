@@ -1,6 +1,8 @@
 package m2them.moviemadness;
 
+import java.text.SimpleDateFormat;
 import java.util.Comparator;
+import java.util.Date;
 
 //author Lily
 
@@ -138,8 +140,14 @@ public class Movie {
     public static Comparator<Movie> releaseComparator = new Comparator<Movie>() {
         @Override
         public int compare(Movie m1, Movie m2) {
-            String movie1 = m1.movieRelease;
-            String movie2 = m2.movieRelease;
+            SimpleDateFormat sdf = new SimpleDateFormat("dd MMM yyyy");
+            Date movie1 = null, movie2 = null;
+            try {
+                movie1 = sdf.parse(m1.movieRelease);
+                movie2 = sdf.parse(m2.movieRelease);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
             return movie1.compareTo(movie2);
         }
     };

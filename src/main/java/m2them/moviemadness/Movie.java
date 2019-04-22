@@ -148,7 +148,7 @@ public class Movie {
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            return movie1.compareTo(movie2);
+            return movie2.compareTo(movie1);
         }
     };
 

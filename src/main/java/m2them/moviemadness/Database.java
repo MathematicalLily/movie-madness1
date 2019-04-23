@@ -169,9 +169,10 @@ public class Database {
         try {
             int id = movie.getId();
             String getReviewByMovieQuery =
-                    "SELECT tblReviews.* " +
+                    "SELECT * " +
                             "FROM tblMovies " +
                             "INNER JOIN tblReviews ON tblReviews.movie_id=tblMovies.movie_id " +
+                            "INNER JOIN tblUsers ON tblReviews.user_id = tblUsers.user_id " +
                             "WHERE tblMovies.movie_id = " + id;
             stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery(getReviewByMovieQuery);
@@ -186,6 +187,7 @@ public class Database {
                 review.setDate(rs.getString("review_date"));
                 review.setRating(Integer.parseInt
                         (rs.getString("review_rating")));
+                review.setUsername(rs.getString("username"));
                 reviews.add(review);
 
             }

@@ -13,7 +13,7 @@ public class MovieController {
 
     @GetMapping({"/index", "/"})
     public String moviesIndex(Model model){
-        ArrayList<Movie> movies = Database.getMovies(Database.connectDB());
+        ArrayList<Movie> movies = Database.getMovies();
         movies.sort(Movie.releaseComparator);
         model.addAttribute("movies", movies);
         model.addAttribute("sortType", new SortType(3));
@@ -22,7 +22,7 @@ public class MovieController {
 
         @RequestMapping("/")
         public String movieSort(Model model, @ModelAttribute("sortType") SortType sortType) {
-            ArrayList<Movie> movies = Database.getMovies(Database.connectDB());
+            ArrayList<Movie> movies = Database.getMovies();
             switch (sortType.getSortType()) {
                 case 1:
                     movies.sort(Movie.titleComparator);

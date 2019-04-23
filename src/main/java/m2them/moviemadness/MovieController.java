@@ -49,9 +49,10 @@ public class MovieController {
 
 
     //request mapping
-    @RequestMapping("/movie")
-    public String movieSort(Model model, @ModelAttribute("movie") Movie movie) {
+    @RequestMapping(value = "/view", method =  RequestMethod.GET)
+    public String movieSort(Model model, @RequestParam("name") String title) {
 
+        Movie movie = Database.getMovieByTitle(title);
 
         ArrayList<Actor> actors = Database.getActorsByMovie(movie);
         ArrayList<Review> reviews = Database.getReviewsByMovie(movie);

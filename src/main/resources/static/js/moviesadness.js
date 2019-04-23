@@ -40,3 +40,16 @@
   $(window).scroll(navbarCollapse);
 
 })(jQuery); // End of use strict
+
+$(".movieBox").click(function() {
+  window.location = $(this).find("a").attr("href");
+  return false;
+});
+
+$( ".movieBox" ).hover(
+    function() {
+      $(this).addClass('shadow-lg').css('cursor', 'pointer');
+    }, function() {
+      $(this).removeClass('shadow-lg');
+    }
+);

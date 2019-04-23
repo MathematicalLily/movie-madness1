@@ -203,6 +203,53 @@ public class Database {
         return reviews;
     }
 
+    //Authors: Tom, Ingrid, Lily
+    public static Movie getMovieByTitle(String title) {
+
+        Connection con = connectDB();
+        Statement stmt = null;
+        Movie movie = new Movie();
+
+        try {
+            String getMovieByNameQuery =
+                    "SELECT * " +
+                            "FROM tblMovies " +
+                            "WHERE movie_title = '" + title + "'";
+            stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery(getMovieByNameQuery);
+
+            while (rs.next()) {
+
+                movie.setId(Integer.parseInt(
+                        rs.getString("movie_id")));
+                movie.setTitle(rs.getString("movie_title"));
+                movie.setSummary(rs.getString("movie_summary"));
+                movie.setDuration(rs.getString("movie_duration"));
+                movie.setGenre(rs.getString("movie_genre"));
+                movie.setRelease(rs.getString("movie_release_date"));
+                movie.setImageURL(rs.getString("movie_cover_image"));
+                movie.setTrailerURL(rs.getString("movie_trailer"));
+
+                movie.setAverageScore(getAverageScore(movie));
+
+            }
+
+        } catch (Exception ex) {
+            System.out.println(ex.getClass());
+            ex.printStackTrace();
+        } finally {
+            try {
+                stmt.close();
+                con.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return movie;
+
+    }
+
     //Authors: Lily & Tom
     public static double getAverageScore(Movie movie) {
 

@@ -9,6 +9,8 @@ import java.sql.*;
 import static java.lang.Class.forName;
 
 
+
+@SuppressWarnings("Duplicates")
 public class Database {
 
 //Author Sanjay
@@ -108,6 +110,94 @@ public class Database {
         }
         return movies;
 
+    }
+
+
+    public static ArrayList<Actor> getActorsByMovie(Movie movie){
+
+        Connection con = connectDB();
+        ArrayList<Actor> actors = new ArrayList<>();
+        Statement stmt = null;
+
+        try {
+            int id = movie.getId();
+            String getActorsByMovieQuery =
+                    "SELECT tblActors.* " +
+                            "FROM tblMovieCast " +
+                            "INNER JOIN tblActors ON tblActors.actor_id=tblMovieCast.actor_id " +
+                            "WHERE movie_id = " + id;
+            stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery(getActorsByMovieQuery);
+
+            while (rs.next()) {
+                Actor actor =new Actor();
+                actor.setId(Integer.parseInt(
+                        rs.getString("actor_id")));
+                actor.setName(rs.getString("actor_name"));
+                actor.setAge(Integer.parseInt(
+                        rs.getString("actor_age")));
+                actor.setGender(rs.getString("actor_gender"));
+                actor.setImageURL(rs.getString("actor_profile_image"));
+                actors.add(actor);
+
+            }
+
+        } catch (Exception ex) {
+            System.out.println(ex.getClass());
+            ex.printStackTrace();
+        } finally {
+            try {
+                stmt.close();
+                con.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return actors;
+    }
+
+    public static ArrayList<Review> getReviewsByMovie(Movie movie) {
+
+        Connection con = connectDB();
+        ArrayList<Review> reviews = new ArrayList<>();
+        Statement stmt = null;
+
+        try {
+            int id = movie.getId();
+            String getReviewByMovieQuery =
+                    "SELECT tblReviews.* " +
+                            "FROM tblMovies " +
+                            "INNER JOIN tblReviews ON tblReviews.movie_id=tblMovies.movie_id " +
+                            "WHERE tblMovies.movie_id = " + id;
+            stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery(getReviewByMovieQuery);
+
+            while (rs.next()) {
+                Review review =new Review();
+                review.setId(Integer.parseInt(
+                        rs.getString("review_id")));
+                review.setComment(rs.getString("review_comment"));
+                review.setUserID(Integer.parseInt(
+                        rs.getString("user_id")));
+                review.setDate(rs.getString("review_date"));
+                review.setRating(Integer.parseInt
+                        (rs.getString("review_rating")));
+                reviews.add(review);
+
+            }
+
+        } catch (Exception ex) {
+            System.out.println(ex.getClass());
+            ex.printStackTrace();
+        } finally {
+            try {
+                stmt.close();
+                con.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return reviews;
     }
 
 //Sanjay
@@ -224,6 +314,8 @@ public class Database {
         }
         return reviews;
     }
+
+
 
 }
 

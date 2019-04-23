@@ -71,7 +71,8 @@ public class Database {
     }
 
     //Author Sanjay
-    public static ArrayList<Movie> getMovies(Connection con) {
+    public static ArrayList<Movie> getMovies() {
+        Connection con = connectDB();
         ArrayList<Movie> movies = new ArrayList<>();
         Statement stmt = null;
 
@@ -93,6 +94,8 @@ public class Database {
                 movie.setImageURL(rs.getString("movie_cover_image"));
                 movie.setTrailerURL(rs.getString("movie_trailer"));
 
+                movie.setAverageScore(getAverageScore(movie));
+
                 movies.add(movie);
             }
 
@@ -112,7 +115,7 @@ public class Database {
 
     }
 
-
+    //Authors:Ingrid & Tom
     public static ArrayList<Actor> getActorsByMovie(Movie movie){
 
         Connection con = connectDB();
@@ -198,6 +201,33 @@ public class Database {
             }
         }
         return reviews;
+    }
+
+    //Authors: Lily & Tom
+    public static double getAverageScore(Movie movie) {
+
+        ArrayList<Review> reviews = getReviewsByMovie(movie);
+        int[] scores = new int[reviews.size()];
+
+        if (scores.length == 0) {
+            return 0.0d;
+        }
+
+        for (Review review: reviews) {
+            scores[reviews.indexOf(review)] = review.getRating();
+        }
+
+        int ratingTotal = 0;
+
+        for (int i = 0; i < scores.length; i++) {
+            ratingTotal += scores[i];
+        }
+
+        double average = Math.round((ratingTotal/scores.length) * 10);
+        average = average/10;
+
+        return average;
+
     }
 
 //Sanjay

@@ -11,6 +11,7 @@ public class Movie {
     private int movieId;
     private String movieTitle, summary, movieDuration,
             movieGenre, movieRelease, movieImageURL, movieTrailerURL;
+    private double averageScore;
 
     public Movie() {
     }
@@ -77,6 +78,14 @@ public class Movie {
 
     public void setTrailerURL(String trailerURL) {
         this.movieTrailerURL = trailerURL;
+    }
+
+    public double getAverageScore() {
+        return averageScore;
+    }
+
+    public void setAverageScore(double averageScore) {
+        this.averageScore = averageScore;
     }
 
     public Movie(int movieId, String title, String summary, String duration, String genre, String release, String imageURL, String trailerURL) {

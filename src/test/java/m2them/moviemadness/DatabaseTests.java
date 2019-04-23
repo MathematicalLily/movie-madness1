@@ -16,7 +16,7 @@ public class DatabaseTests {
     @Test
     public void testMoviesReceived() {
 
-        ArrayList<Movie> movies = Database.getMovies(Database.connectDB());
+        ArrayList<Movie> movies = Database.getMovies();
 
         assertNotNull(movies);
 
@@ -25,53 +25,9 @@ public class DatabaseTests {
     }
 
     @Test
-    public void testActorsReceived() {
-
-        ArrayList<Actor> actors = Database.getActors(Database.connectDB());
-
-        assertNotNull(actors);
-
-        assertNotEquals(actors.size(), 0);
-
-    }
-
-    @Test
-    public void testUsersReceived() {
-
-        ArrayList<User> users = Database.getUsers(Database.connectDB());
-
-        assertNotNull(users);
-
-        assertNotEquals(users.size(), 0);
-
-    }
-
-    @Test
-    public void testCastReceived() {
-
-        ArrayList<Cast> casts = Database.getCasts(Database.connectDB());
-
-        assertNotNull(casts);
-
-        assertNotEquals(casts.size(), 0);
-
-    }
-
-    @Test
-    public void testReviewsReceived() {
-
-        ArrayList<Review> reviews = Database.getReviews(Database.connectDB());
-
-        assertNotNull(reviews);
-
-        assertNotEquals(reviews.size(), 0);
-
-    }
-
-    @Test
     public void testMovieContents() {
 
-        Movie fromDB = Database.getMovies(Database.connectDB()).get(0);
+        Movie fromDB = Database.getMovies().get(0);
 
         Movie hellboy = new Movie(1, "Hellboy",
                 "Based on the graphic novels by Mike Mignola, Hellboy, caught between the worlds of the supernatural and human, battles an ancient sorceress bent on revenge.",

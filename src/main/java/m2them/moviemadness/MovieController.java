@@ -43,7 +43,7 @@ public class MovieController {
 
 
     //request mapping
-    @RequestMapping("/movies")
+    @RequestMapping("/movie")
     public String movieSort(Model model, @ModelAttribute("movie") Movie movie) {
 
 

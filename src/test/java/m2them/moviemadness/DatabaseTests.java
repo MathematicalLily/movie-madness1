@@ -47,20 +47,5 @@ public class DatabaseTests {
 
     }
 
-    @Test
-    public void testActorContents() {
-
-        Actor fromDB = Database.getActors(Database.connectDB()).get(0);
-
-        Actor bLarson = new Actor(1, 29,
-                "Brie Larson", "Female",
-                "http://www.gstatic.com/tv/thumb/persons/230638/230638_v9_ba.jpg");
-
-        assertEquals(fromDB.getId(), bLarson.getId());
-        assertEquals(fromDB.getAge(), bLarson.getAge());
-        assertEquals(fromDB.getName(), bLarson.getName());
-        assertEquals(fromDB.getGender(), bLarson.getGender());
-        assertEquals(fromDB.getImageURL(), bLarson.getImageURL());
-    }
 
 }

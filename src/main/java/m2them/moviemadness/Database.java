@@ -125,7 +125,7 @@ public class Database {
         try {
             int id = movie.getId();
             String getActorsByMovieQuery =
-                    "SELECT tblActors.* " +
+                    "SELECT * " +
                             "FROM tblMovieCast " +
                             "INNER JOIN tblActors ON tblActors.actor_id=tblMovieCast.actor_id " +
                             "WHERE movie_id = " + id;
@@ -135,12 +135,13 @@ public class Database {
             while (rs.next()) {
                 Actor actor =new Actor();
                 actor.setId(Integer.parseInt(
-                        rs.getString("actor_id")));
+                        rs.getString("tblActors.actor_id")));
                 actor.setName(rs.getString("actor_name"));
                 actor.setAge(Integer.parseInt(
                         rs.getString("actor_age")));
                 actor.setGender(rs.getString("actor_gender"));
                 actor.setImageURL(rs.getString("actor_profile_image"));
+                actor,setRole(rs.getString("actor_role"));
                 actors.add(actor);
 
             }

@@ -178,6 +178,13 @@ public class Movie {
             return movie1.compareTo(movie2);
         }
     };
+
+    public static Comparator<Movie> scoreComparator = new Comparator<Movie>() {
+        @Override
+        public int compare(Movie o1, Movie o2) {
+            return Double.compare(o2.averageScore, o1.averageScore);
+        }
+    };
 }
 
 

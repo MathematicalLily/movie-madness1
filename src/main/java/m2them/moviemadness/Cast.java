@@ -7,7 +7,7 @@ public class Cast {
 
 
     private int id, movieID, actorID;
-
+    private String role;
 
 
     public int getId() {
@@ -32,6 +32,14 @@ public class Cast {
 
     public void setActorID(int actorID) {
         this.actorID = actorID;
+    }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
     }
 
     public Cast(int id, int movieID, int actorID) {

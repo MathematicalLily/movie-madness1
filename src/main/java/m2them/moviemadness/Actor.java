@@ -5,7 +5,7 @@ import java.util.Comparator;
 public class Actor {
 
     private int id, age;
-    private String name, gender, imageURL;
+    private String name, gender, role, imageURL;
 
     public int getId() {
         return id;
@@ -43,16 +43,24 @@ public class Actor {
         return imageURL;
     }
 
+    public void setRole(String role) { this.role = role;}
+
+    public String getRole (String role){
+        return role;
+    }
+
+
     public void setImageURL(String imageURL) {
         this.imageURL = imageURL;
     }
 
-    public Actor(int id, int age, String name, String gender, String imageURL) {
+    public Actor(int id, int age, String name, String gender, String imageURL, String role) {
         this.id = id;
         this.age = age;
         this.name = name;
         this.gender = gender;
         this.imageURL = imageURL;
+        this.role = role;
     }
 
     public Actor() {

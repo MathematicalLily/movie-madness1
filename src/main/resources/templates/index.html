@@ -36,7 +36,7 @@
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#main-content-div">Movies</a>
+            <a class="nav-link js-scroll-trigger" href="#movies">Movies</a>
           </li>
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#">About</a>
@@ -58,13 +58,13 @@
       <div class="mx-auto text-center">
         <h1 class="mx-auto my-0 text-uppercase">Movie Sadness</h1>
         <h2 class="text-white-50 mx-auto mt-2 mb-5">Your tears are our tears and our tears are your tears</h2>
-        <a href="#main-content-div" class="btn btn-primary js-scroll-trigger">Select Movie</a>
+        <a href="#movies" class="btn btn-primary js-scroll-trigger">Select Movie</a>
       </div>
     </div>
   </header>
 gi
   <!-- main content -->
-  <main id="main-content-div">
+  <main id="movies">
 
   <!-- movies article -->
     <article  id="movie-display-section" class="projects-section bg-light">
@@ -76,11 +76,11 @@ gi
                 <div class="col-lg-3 order-lg-first">
                  <label>Order Movies by:</label>
 
-                  <form action="#" th:action="@{/#main-content-div}" method="post" th:object="${sortType}">
+                  <form action="#" th:action="@{/#movies}" method="post" th:object="${sortType}">
                     <select onchange="this.form.submit()" class="custom-select custom-select-lg mb-3" th:field="*{sortType}">
-                       <option selected th:value="1">Title: A-Z</option>
+                       <option th:value="1">Title: A-Z</option>
                        <option th:value="2">Title: Z-A</option>
-                       <option th:value="3">Release Date: Most Recent</option>
+                       <option selected th:value="3">Release Date: Most Recent</option>
                        <option th:value="4">Release Date: Old to New</option>
                     </select>
                   </form>

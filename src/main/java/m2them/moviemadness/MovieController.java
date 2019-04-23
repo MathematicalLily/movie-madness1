@@ -14,9 +14,9 @@ public class MovieController {
     @GetMapping({"/index", "/"})
     public String moviesIndex(Model model){
         ArrayList<Movie> movies = Database.getMovies(Database.connectDB());
-        movies.sort(Movie.titleComparator);
+        movies.sort(Movie.releaseComparator);
         model.addAttribute("movies", movies);
-        model.addAttribute("sortType", new SortType(1));
+        model.addAttribute("sortType", new SortType(3));
         return "index";
         }
 

@@ -48,8 +48,10 @@ $(".movieBox").click(function() {
 
 $( ".movieBox" ).hover(
     function() {
-      $(this).addClass('shadow-lg').css('cursor', 'pointer');
+      $(this).addClass('shadow-lg bg-secondary').css('cursor', 'pointer');
+      $(this).removeClass('bg-black');
     }, function() {
-      $(this).removeClass('shadow-lg');
+      $(this).removeClass('shadow-lg bg-secondary');
+      $(this).addClass('bg-black');
     }
 );

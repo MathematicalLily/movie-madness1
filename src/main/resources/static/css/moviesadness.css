@@ -295,6 +295,10 @@ a:focus, a:hover {
   background-color: #64a19d !important;
 }
 
+.bg-secondary {
+    background-color: DarkSlateGray !important;
+}
+
 .text-primary {
   color: #64a19d !important;
 }

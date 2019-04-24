@@ -1,4 +1,13 @@
 
+.gold-background-gradient{
+
+    background: #e0c898; /* Old browsers */
+    background: -moz-linear-gradient(left, #e0c898 0%, #8c6401 100%, #752201 100%, #bf6e4e 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(left, #e0c898 0%,#8c6401 100%,#752201 100%,#bf6e4e 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to right, #e0c898 0%,#8c6401 100%,#752201 100%,#bf6e4e 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e0c898', endColorstr='#bf6e4e',GradientType=1 ); /* IE6-9 */
+}
+
 #mainNav {
   min-height: 56px;
   background-color: #fff;
@@ -36,6 +45,7 @@
   outline: none;
   background-color: transparent;
 }
+
 
 @media (min-width: 992px) {
   #mainNav {

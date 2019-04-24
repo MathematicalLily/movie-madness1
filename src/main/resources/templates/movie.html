@@ -93,9 +93,9 @@
                             <div class="d-flex h-100">
                                 <div class="project-text w-100 my-auto text-center text-lg-center">
                                     <h4 th:text="${actor.getName()}" class="text-white"></h4>
-                                    <img src='th:text="${actor.getURL()}"' class="mb-0 text-white-50">
+                                    <img th:src="${actor.getImageURL()}" class="mb-0 text-white-50" style="max-height: 200px; height:100%;">
                                     <h4 th:text="${actor.getAge()}" class="text-white"></h4>
-                                    <h4 th:text="${actor.getGender()}" class="text-white"></h4>
+                                    <h4 th:text="${actor.getRole()}" class="text-white"></h4>
                                 </div>
                             </div>
                         </div>
@@ -126,22 +126,15 @@
 
 
             <!-- movies section, the movie object that will be repeated for every instance-->
-            <section th:each="review:${reviews}" id="" class="container bg-light movieBox ">
+            <section th:each="review:${reviews}" id="" class="container">
                 <!-- movie image -->
                 <div class="row justify-content-center no-gutters mb-5">
-                    <div class="col-lg-2 order-lg-first">
-                        <div class="bg-black text-center h-100 project">
-                            <div class="d-flex h-100">
-                                <!--get user avatar img-->
-                                <img src="img/avatar.jpg" class="img-fluid" alt="" style="max-height:200px; height: 100%;">
-                            </div>
-                        </div>
-                    </div>
                     <!-- userName and comment? -->
                     <div class="col-lg-8 order-lg-first">
                         <div class="bg-black text-center h-100 project">
                             <div class="d-flex h-100">
                                 <div class="project-text w-100 my-auto text-center text-lg-center">
+                                    <h3 th:text="${review.getUsername()}" class="text-white"></h3>
                                     <h4 th:text="${'Score: ' + review.getRating()}" class="text-white"></h4>
                                     <p th:text="${review.getComment()}" class="mb-0 text-white-50"></p>
                                     <hr class="d-none d-lg-block mb-0 ">

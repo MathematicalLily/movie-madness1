@@ -267,13 +267,13 @@ public class Database {
             scores[reviews.indexOf(review)] = review.getRating();
         }
 
-        int ratingTotal = 0;
+        double ratingTotal = 0;
 
         for (int i = 0; i < scores.length; i++) {
             ratingTotal += scores[i];
         }
 
-        double average = Math.round((ratingTotal/scores.length) * 10);
+        double average = (double) Math.round((ratingTotal/scores.length) * 10);
         average = average/10;
 
         return average;

@@ -28,7 +28,10 @@
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav" href="#page-top">
     <div class="container">
-      <a class="navbar-brand ajs-scroll-trigger"><img class="navbar-logo" src="img/Logo1.jpg"> </a>
+      <a class="navbar-brand ajs-scroll-trigger" href="/">
+          <!-- <img class="navbar-logo" src="img/Logo1.jpg"> commented out while logo updated/pushed -->
+      [m2them]
+      </a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         Menu
         <i class="fas fa-bars"></i>
@@ -92,11 +95,11 @@
         </div>
 
       <!-- movies section, the movie object that will be repeated for every instance-->
-      <section th:each="movie:${movies}" id="" class="container bg-light movieBox ">
+      <section th:each="movie:${movies}" id="" class="container bg-black movieBox">
         <!-- movie image -->
         <div class="row justify-content-center no-gutters mb-5">
           <div class="col-lg-4 order-lg-first">
-            <div class="bg-black text-center h-100 project">
+            <div class="text-center h-100 project">
               <div class="d-flex h-100">
                 <img th:src="${movie.getImageURL()}" class="img-fluid" alt="">
               </div>
@@ -104,7 +107,7 @@
           </div>
           <!-- movie title and summary? -->
           <div class="col-lg-4 order-lg-first">
-            <div class="bg-black text-center h-100 project">
+            <div class="text-center h-100 project">
               <div class="d-flex h-100">
                 <div class="project-text w-100 my-auto text-center text-lg-center">
                   <h4 th:text="${movie.getTitle()}" class="text-white"></h4>
@@ -116,7 +119,7 @@
           </div>
           <!-- movie release date -->
           <div class="col-lg-4 order-lg-first">
-            <div class="bg-black text-center h-100 project">
+            <div class="text-center h-100 project">
               <div class="d-flex h-100">
                 <div class="project-text w-100 my-auto text-center text-lg-center">
                   <h4 th:text="${movie.getRelease()}" class="text-white"></h4>

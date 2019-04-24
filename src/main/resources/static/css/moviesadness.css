@@ -305,10 +305,19 @@ a:focus, a:hover {
   background-color: #64a19d !important;
 }
 
+.bg-secondary {
+    background-color: DarkSlateGray !important;
+}
+
 .text-primary {
   color: #64a19d !important;
 }
 
 footer {
   padding: 5rem 0;
+}
+
+.movieBox {
+  padding-left:0;
+  padding-right:0;
 }

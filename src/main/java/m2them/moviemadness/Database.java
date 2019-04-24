@@ -125,7 +125,7 @@ public class Database {
         try {
             int id = movie.getId();
             String getActorsByMovieQuery =
-                    "SELECT tblActors.* " +
+                    "SELECT * " +
                             "FROM tblMovieCast " +
                             "INNER JOIN tblActors ON tblActors.actor_id=tblMovieCast.actor_id " +
                             "WHERE movie_id = " + id;
@@ -141,6 +141,7 @@ public class Database {
                         rs.getString("actor_age")));
                 actor.setGender(rs.getString("actor_gender"));
                 actor.setImageURL(rs.getString("actor_profile_image"));
+                actor.setRole(rs.getString("actor_role"));
                 actors.add(actor);
 
             }
@@ -168,9 +169,10 @@ public class Database {
         try {
             int id = movie.getId();
             String getReviewByMovieQuery =
-                    "SELECT tblReviews.* " +
+                    "SELECT * " +
                             "FROM tblMovies " +
                             "INNER JOIN tblReviews ON tblReviews.movie_id=tblMovies.movie_id " +
+                            "INNER JOIN tblUsers ON tblReviews.user_id = tblUsers.user_id " +
                             "WHERE tblMovies.movie_id = " + id;
             stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery(getReviewByMovieQuery);
@@ -185,6 +187,7 @@ public class Database {
                 review.setDate(rs.getString("review_date"));
                 review.setRating(Integer.parseInt
                         (rs.getString("review_rating")));
+                review.setUsername(rs.getString("username"));
                 reviews.add(review);
 
             }
@@ -264,13 +267,13 @@ public class Database {
             scores[reviews.indexOf(review)] = review.getRating();
         }
 
-        int ratingTotal = 0;
+        double ratingTotal = 0;
 
         for (int i = 0; i < scores.length; i++) {
             ratingTotal += scores[i];
         }
 
-        double average = Math.round((ratingTotal/scores.length) * 10);
+        double average = (double) Math.round((ratingTotal/scores.length) * 10);
         average = average/10;
 
         return average;

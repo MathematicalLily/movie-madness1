@@ -60,9 +60,7 @@ public class MovieController {
         model.addAttribute("reviews", reviews);
         model.addAttribute("movie", movie);
 
-
         return "movie";
-
 
     }
 

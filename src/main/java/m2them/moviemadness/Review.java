@@ -5,7 +5,15 @@ import java.util.Comparator;
 public class Review {
 
     private int id, userID, movieID, rating;
-    private String comment, date;
+    private String comment, date, username;
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
 
     public int getId() {
         return id;

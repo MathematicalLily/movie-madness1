@@ -31,7 +31,7 @@
         <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav" href="#page-top">
             <div class="container">
                 <a class="navbar-brand ajs-scroll-trigger" href="/">
-                    <img class="navbar-logo" src="img/m2them_logo.svg" alt="">
+                    <img class="navbar-logo" th:src="@{/img/m2them_logo.svg}" alt="">
                 </a>
                 <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
                     Menu
@@ -113,13 +113,14 @@
                     <div class="col-lg-4 order-lg-first">
                         <label>Order Reviews by:</label>
 
-                        <form action="#">
-                            <select  class="custom-select custom-select-lg mb-3">
+                        <form th:action="@{#reviews}" method="post" th:object="${reviewSort}">
+                            <select onchange="this.form.submit()" th:field="*{sortType}" class="custom-select custom-select-lg mb-3">
                                 <option selected th:value="1">Most Recent</option>
                                 <option th:value="2">Old to New</option>
                                 <option th:value="3">Score: High to Low</option>
                                 <option th:value="4">Score: Low to High</option>
                             </select>
+                            <input th:field="*{movieName}" th:value="${movie.getTitle()}" style="display:none;">
                         </form>
 
                     </div>

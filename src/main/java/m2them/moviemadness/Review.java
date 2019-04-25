@@ -1,6 +1,8 @@
 package m2them.moviemadness;
 
+import java.text.SimpleDateFormat;
 import java.util.Comparator;
+import java.util.Date;
 
 public class Review {
 
@@ -117,9 +119,15 @@ public class Review {
     public static Comparator<Review> dateComparator = new Comparator<Review>() {
         @Override
         public int compare(Review r1, Review r2) {
-            String review1 = r1.date.toLowerCase();
-            String review2 = r2.date.toLowerCase();
-            return review1.compareTo(review2);
+            SimpleDateFormat sdf = new SimpleDateFormat("dd MMM yyyy");
+            Date review1 = null, review2 = null;
+            try {
+                review1 = sdf.parse(r1.date);
+                review2 = sdf.parse(r2.date);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return review2.compareTo(review1);
         }
     };
 }

@@ -29,8 +29,8 @@
   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav" href="#page-top">
     <div class="container">
       <a class="navbar-brand ajs-scroll-trigger" href="/">
-          <!-- <img class="navbar-logo" src="img/Logo1.jpg"> commented out while logo updated/pushed -->
-      [m2them]
+           <img class="navbar-logo" src="img/m2them_logo.svg" alt="">
+
       </a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         Menu
@@ -95,7 +95,7 @@
         </div>
 
       <!-- movies section, the movie object that will be repeated for every instance-->
-      <section th:each="movie:${movies}" id="" class="container bg-black movieBox">
+      <section th:each="movie:${movies}" id="" class="container bg-black movieBox" style="cursor: pointer;">
         <!-- movie image -->
         <div class="row justify-content-center no-gutters mb-5">
           <div class="col-lg-4 order-lg-first">

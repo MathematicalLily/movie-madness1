@@ -17,14 +17,15 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom fonts-->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+          integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+          rel="stylesheet">
 
     <!-- Custom css and js styles -->
     <link rel="stylesheet" th:href="@{/css/moviesadness.css}"/>
     <script type="text/javascript" th:src="@{/js/moviesadness.js}" defer></script>
-
 
 
 </head>
@@ -32,174 +33,181 @@
 <body id="page-top">
 
 <!-- Navigation -->
-        <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav" href="#page-top">
-            <div class="container">
-                <a class="navbar-brand ajs-scroll-trigger" href="/">
-                    <img class="navbar-logo" th:src="@{/img/m2them_logo.svg}" alt="">
-                </a>
-                <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    Menu
-                    <i class="fas fa-bars"></i>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ml-auto">
-                        <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" href="/#movies">Movies</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" href="#">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" href="#">Contact</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" href="#">Login</a>
-                        </li>
-                    </ul>
-                </div>
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav" href="#page-top">
+    <div class="container">
+        <a class="navbar-brand ajs-scroll-trigger" href="/">
+            <img class="navbar-logo" th:src="@{/img/m2them_logo.svg}" style="max-height: 2em; height:100%;" alt="">
+        </a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+                data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                aria-label="Toggle navigation">
+            Menu
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="/#movies">Movies</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="#">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="#">Login</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Header -->
+<header class="masthead">
+    <div class="container d-flex h-100 align-items-center">
+        <div class="mx-auto text-center">
+
+
+            <h1 th:text="${movie.getTitle()}" class="mx-auto my-0 text-uppercase"></h1>
+            <br>
+
+            <h2 th:text="${'Avg Rating: ' + movie.getAverageScore()}" class="text-white mx-auto my-0"></h2>
+
+            <br>
+            <h4 th:text="${'Genre: ' + movie.getGenre()}" class="mx-auto my-0 text-white"></h4>
+            <br>
+
+            <p th:text="${movie.getSummary()}" class="text-white-50 mx-auto col-sm-6"></p>
+
+
+            <br>
+            <a href="#reviews" class="btn btn-primary js-scroll-trigger">User Reviews</a>
+
+        </div>
+    </div>
+</header>
+
+<main id="cast">
+
+    <div class="container">
+        <section class="row d-flex h-100 align-items-center container bg-light">
+            <div class="mx-auto text-center col order-lg-first">
+                <h2> Cast</h2>
             </div>
-        </nav>
-
-        <!-- Header -->
-        <header class="masthead">
-            <div class="container d-flex h-100 align-items-center">
-                <div class="mx-auto text-center">
-
-
-                    <h1 th:text="${movie.getTitle()}" class="mx-auto my-0 text-uppercase"></h1>
-                    <br>
-
-                    <h2 th:text="${'Avg Rating: ' + movie.getAverageScore()}" class="text-white mx-auto my-0"></h2>
-
-                    <br>
-                    <h4 th:text="${'Genre: ' + movie.getGenre()}" class="mx-auto my-0 text-white"></h4>
-                    <br>
-
-                    <p th:text="${movie.getSummary()}" class="text-white-50 mx-auto col-sm-6"></p>
-
-
-                    <br>
-                    <a href="#reviews" class="btn btn-primary js-scroll-trigger">User Reviews</a>
-
-                </div>
-            </div>
-        </header>
-
-        <main id="cast">
-
-            <div class="container">
-                <section class="row d-flex h-100 align-items-center container bg-light">
-                    <div class="mx-auto text-center col order-lg-first">
-                        <h2> Cast</h2>
-                    </div>
-                </section>
-                <section class="row d-flex h-100 align-items-center container bg-light">
-                    <div th:each="actor:${actors}"  class="col order-lg-first">
-                        <div class="bg-black text-center h-100 project">
-                            <div class="d-flex h-100">
-                                <div class="project-text w-100 my-auto text-center text-lg-center">
-                                    <h4 th:text="${actor.getName()}" class="text-white"></h4>
-                                    <img th:src="${actor.getImageURL()}" class="mb-0 text-white-50" style="max-height: 200px; height:100%;">
-                                    <h4 th:text="${actor.getAge()}" class="text-white"></h4>
-                                    <h4 th:text="${actor.getRole()}" class="text-white"></h4>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </div>
-
-            <div id="reviews" class="container">
-                <section class="row d-flex h-100 align-items-center container bg-light">
-                    <div class="mx-auto text-center col-lg-4 order-lg-first">
-                        <h2 id="#reviews"> Reviews</h2>
-                    </div>
-                    <div class="col-lg-4 order-lg-first">
-                        <label>Order Reviews by:</label>
-
-                        <form th:action="@{#reviews}" method="post" th:object="${reviewSort}">
-                            <select onchange="this.form.submit()" th:field="*{sortType}" class="custom-select custom-select-lg mb-3">
-                                <option selected th:value="1">Most Recent</option>
-                                <option th:value="2">Old to New</option>
-                                <option th:value="3">Score: High to Low</option>
-                                <option th:value="4">Score: Low to High</option>
-                            </select>
-                            <input th:field="*{movieName}" th:value="${movie.getTitle()}" style="display:none;">
-                        </form>
-
-                    </div>
-                </section>
-            </div>
-
-
-            <!-- movies section, the movie object that will be repeated for every instance-->
-            <section th:each="review:${reviews}" id="" class="container">
-                <!-- movie image -->
-                <div class="row justify-content-center no-gutters mb-5">
-                    <!-- userName and comment? -->
-                    <div class="col-lg-8 order-lg-first">
-                        <div class="bg-black text-center h-100 project">
-                            <div class="d-flex h-100">
-                                <div class="project-text w-100 my-auto text-center text-lg-center">
-                                    <h3 th:text="${review.getUsername()}" class="text-white"></h3>
-                                    <h4 th:text="${'Score: ' + review.getRating()}" class="text-white"></h4>
-                                    <p th:text="${review.getComment()}" class="mb-0 text-white-50"></p>
-                                    <hr class="d-none d-lg-block mb-0 ">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- movie release date -->
-                    <div class="col-lg-2 order-lg-first">
-                        <div class="bg-black text-center h-100 project">
-                            <div class="d-flex h-100">
-                                <div class="project-text w-100 my-auto text-center text-lg-center">
-                                    <h4 th:text="${review.getDate()}" class="text-white"></h4>
-                                    <hr class="d-none d-lg-block mb-0">
-                                </div>
-                            </div>
+        </section>
+        <section class="row d-flex h-100 align-items-center container bg-light">
+            <div th:each="actor:${actors}" class="col order-lg-first">
+                <div class="bg-black text-center h-100 project">
+                    <div class="d-flex h-100">
+                        <div class="project-text w-100 my-auto text-center text-lg-center">
+                            <h4 th:text="${actor.getName()}" class="text-white"></h4>
+                            <img th:src="${actor.getImageURL()}" class="mb-0 text-white-50"
+                                 style="max-height: 200px; height:100%;">
+                            <h4 th:text="${actor.getAge()}" class="text-white"></h4>
+                            <h4 th:text="${actor.getRole()}" class="text-white"></h4>
                         </div>
                     </div>
                 </div>
-            </section><!-- closes movie section -->
-
-
-            <section class="container d-flex h-100 align-items-center">
-                <div class="mx-auto text-center">
-                    <a href="#page-top" class="btn btn-primary js-scroll-trigger">Back to Top</a>
-                </div>
-            </section>
-
-         </article><!-- close movies article -->
-
-        </main><!--close main content div -->
-
-
-
-
-        <!-- Footer -->
-        <footer class="bg-black small text-center text-white-50">
-            <div class="container">
-                <div class="social d-flex justify-content-center">
-                    <a href="#" class="mx-2">
-                        <i class="fab fa-twitter"></i>
-                    </a>
-                    <a href="#" class="mx-2">
-                        <i class="fab fa-facebook-f"></i>
-                    </a>
-                    <a href="#" class="mx-2">
-                        <i class="fab fa-github"></i>
-                    </a>
-                </div>
-                Copyright &copy; Method to the Madness 2019
             </div>
+        </section>
+    </div>
+
+    <div id="reviews" class="container">
+        <section class="row d-flex h-100 align-items-center container bg-light">
+            <div class="mx-auto text-center col-lg-4 order-lg-first">
+                <h2 id="#reviews"> Reviews</h2>
+            </div>
+            <div class="col-lg-4 order-lg-first">
+                <label>Order Reviews by:</label>
+
+                <form th:action="@{#reviews}" method="post" th:object="${reviewSort}">
+                    <select onchange="this.form.submit()" th:field="*{sortType}"
+                            class="custom-select custom-select-lg mb-3">
+                        <option selected th:value="1">Most Recent</option>
+                        <option th:value="2">Old to New</option>
+                        <option th:value="3">Score: High to Low</option>
+                        <option th:value="4">Score: Low to High</option>
+                    </select>
+                    <input th:field="*{movieName}" th:value="${movie.getTitle()}" style="display:none;">
+                </form>
+
+            </div>
+        </section>
+    </div>
+
+
+    <!-- movies section, the movie object that will be repeated for every instance-->
+    <section th:each="review:${reviews}" id="" class="container">
+        <!-- movie image -->
+        <div class="row justify-content-center no-gutters mb-5">
+            <!-- userName and comment? -->
+            <div class="col-lg-8 order-lg-first">
+                <div class="bg-black text-center h-100 project">
+                    <div class="d-flex h-100">
+                        <div class="project-text w-100 my-auto text-center text-lg-center">
+                            <h3 th:text="${review.getUsername()}" class="text-white"></h3>
+                            <h4 th:text="${'Score: ' + review.getRating()}" class="text-white"></h4>
+                            <p th:text="${review.getComment()}" class="mb-0 text-white-50"></p>
+                            <hr class="d-none d-lg-block mb-0 ">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- movie release date -->
+            <div class="col-lg-2 order-lg-first">
+                <div class="bg-black text-center h-100 project">
+                    <div class="d-flex h-100">
+                        <div class="project-text w-100 my-auto text-center text-lg-center">
+                            <h4 th:text="${review.getDate()}" class="text-white"></h4>
+                            <hr class="d-none d-lg-block mb-0">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section><!-- closes movie section -->
+
+
+    <section class="container d-flex h-100 align-items-center">
+        <div class="mx-auto text-center">
+            <a href="#page-top" class="btn btn-primary js-scroll-trigger">Back to Top</a>
+        </div>
+    </section>
+
+    </article><!-- close movies article -->
+
+</main><!--close main content div -->
+
+
+<!-- Footer -->
+<footer class="bg-black small text-center text-white-50">
+    <div class="container">
+        <div class="social d-flex justify-content-center">
+            <a href="#" class="mx-2">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="mx-2">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="mx-2">
+                <i class="fab fa-github"></i>
+            </a>
+        </div>
+        Copyright &copy; Method to the Madness 2019
+    </div>
 
 </footer><!--close footer div-->
 
 <!-- Bootstrap core JavaScript -->
-<script src="https://code.jquery.com/jquery-3.4.0.slim.min.js" integrity="sha256-ZaXnYkHGqIhqTbJ6MB4l9Frs/r7U4jlx7ir8PJYBqbI="crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.4.0.slim.min.js"
+        integrity="sha256-ZaXnYkHGqIhqTbJ6MB4l9Frs/r7U4jlx7ir8PJYBqbI=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
 
 </body>
 

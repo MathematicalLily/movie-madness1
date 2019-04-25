@@ -3,178 +3,188 @@
 
 <head>
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-  <title>Movie Reviews</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Movie Reviews</title>
 
-  <link rel="icon" th:href="@{/img/logo_16.png}" sizes="16x16">
-  <link rel="icon" th:href="@{/img/logo_32.png}" sizes="32x32">
-  <link rel="icon" th:href="@{/img/logo_128.png}" sizes="128x128">
+    <link rel="icon" th:href="@{/img/logo_16.png}" sizes="16x16">
+    <link rel="icon" th:href="@{/img/logo_32.png}" sizes="32x32">
+    <link rel="icon" th:href="@{/img/logo_128.png}" sizes="128x128">
 
-  <!-- Bootstrap core CSS -->
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap core CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
 
-  <!-- Custom fonts-->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
-  <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <!-- Custom fonts-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+          integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+          rel="stylesheet">
 
-  <!-- Custom css and js styles -->
-  <link rel="stylesheet" th:href="@{/css/moviesadness.css}"/>
-  <script type="text/javascript" th:src="@{/js/moviesadness.js}" defer></script>
+    <!-- Custom css and js styles -->
+    <link rel="stylesheet" th:href="@{/css/moviesadness.css}"/>
+    <script type="text/javascript" th:src="@{/js/moviesadness.js}" defer></script>
 
 </head>
 
 <body id="page-top">
 
-  <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav" href="#page-top">
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav" href="#page-top">
     <div class="container">
-      <a class="navbar-brand ajs-scroll-trigger" href="/">
-           <img class="navbar-logo" th:src="@{/img/m2them_logo.svg}" alt="">
+        <a class="navbar-brand ajs-scroll-trigger" href="/">
+            <img class="navbar-logo" th:src="@{/img/m2them_logo.svg}" alt="" style="max-height: 2em; height:100%;">
 
-      </a>
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        Menu
-        <i class="fas fa-bars"></i>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#movies">Movies</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#">Contact</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#">Login</a>
-          </li>
-        </ul>
-      </div>
+        </a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse"
+                data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                aria-label="Toggle navigation">
+            Menu
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="#movies">Movies</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="#">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="#">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link js-scroll-trigger" href="#">Login</a>
+                </li>
+            </ul>
+        </div>
     </div>
-  </nav>
+</nav>
 
-  <!-- Header -->
-  <header class="masthead">
+<!-- Header -->
+<header class="masthead">
     <div class="container d-flex h-100 align-items-center">
-      <div class="mx-auto text-center">
-        <h1 class="mx-auto my-0 text-uppercase">Movie Madness</h1>
-        <h2 class="text-white-50 mx-auto mt-2 mb-5">Reviews for all and all for reviews</h2>
-        <a href="#movies" class="btn btn-primary js-scroll-trigger">Select Movie</a>
-      </div>
+        <div class="mx-auto text-center">
+            <h1 class="mx-auto my-0 text-uppercase">Movie Madness</h1>
+            <h2 class="text-white-50 mx-auto mt-2 mb-5">Reviews for all and all for reviews</h2>
+            <a href="#movies" class="btn btn-primary js-scroll-trigger">Select Movie</a>
+        </div>
     </div>
-  </header>
+</header>
 
-  <!-- main content -->
-  <main id="movies">
+<!-- main content -->
+<main id="movies">
 
-  <!-- movies article -->
-    <article  id="listed_movies" class="projects-section bg-light">
+    <!-- movies article -->
+    <article id="listed_movies" class="projects-section bg-light">
         <div class="container">
-           <section class="row d-flex h-100 align-items-center container bg-light">
+            <section class="row d-flex h-100 align-items-center container bg-light">
                 <div class="mx-auto text-center col-lg-4 order-lg-first">
-                  <h2> Movies</h2>
+                    <h2> Movies</h2>
                 </div>
                 <div class="col-lg-4 order-lg-first">
-                 <label>Order Movies by:</label>
+                    <label>Order Movies by:</label>
 
-                  <form action="#" th:action="@{/#movies}" method="post" th:object="${sortType}">
-                    <select onchange="this.form.submit()" class="custom-select custom-select-lg mb-3" th:field="*{sortType}">
-                       <option th:value="1">Title: A-Z</option>
-                       <option th:value="2">Title: Z-A</option>
-                       <option selected th:value="3">Release Date: Most Recent</option>
-                       <option th:value="4">Release Date: Old to New</option>
-                       <option th:value="5">Average Score: High to Low</option>
-                       <option th:value="6">Average Score: Low to High</option>
-                    </select>
-                  </form>
+                    <form action="#" th:action="@{/#movies}" method="post" th:object="${sortType}">
+                        <select onchange="this.form.submit()" class="custom-select custom-select-lg mb-3"
+                                th:field="*{sortType}">
+                            <option th:value="1">Title: A-Z</option>
+                            <option th:value="2">Title: Z-A</option>
+                            <option selected th:value="3">Release Date: Most Recent</option>
+                            <option th:value="4">Release Date: Old to New</option>
+                            <option th:value="5">Average Score: High to Low</option>
+                            <option th:value="6">Average Score: Low to High</option>
+                        </select>
+                    </form>
 
                 </div>
-           </section>
+            </section>
         </div>
 
-      <!-- movies section, the movie object that will be repeated for every instance-->
-      <section th:each="movie:${movies}" id="" class="container bg-black movieBox" style="cursor: pointer;">
-        <!-- movie image -->
-        <div class="row justify-content-center no-gutters mb-5">
-          <div class="col-lg-4 order-lg-first">
-            <div class="text-center h-100 project">
-              <div class="d-flex h-100">
-                <img th:src="${movie.getImageURL()}" class="img-fluid" alt="">
-              </div>
-            </div>
-          </div>
-          <!-- movie title and summary? -->
-          <div class="col-lg-4 order-lg-first">
-            <div class="text-center h-100 project">
-              <div class="d-flex h-100">
-                <div class="project-text w-100 my-auto text-center text-lg-center">
-                  <h4 th:text="${movie.getTitle()}" class="text-white"></h4>
-                  <p th:text="${movie.getSummary()}" class="mb-0 text-white-50"></p>
-                  <hr class="d-none d-lg-block mb-0 ">
+        <!-- movies section, the movie object that will be repeated for every instance-->
+        <section th:each="movie:${movies}" id="" class="container bg-black movieBox" style="cursor: pointer;">
+            <!-- movie image -->
+            <div class="row justify-content-center no-gutters mb-5">
+                <div class="col-lg-4 order-lg-first">
+                    <div class="text-center h-100 project">
+                        <div class="d-flex h-100">
+                            <img th:src="${movie.getImageURL()}" class="img-fluid" alt="">
+                        </div>
+                    </div>
                 </div>
-              </div>
-            </div>
-          </div>
-          <!-- movie release date -->
-          <div class="col-lg-4 order-lg-first">
-            <div class="text-center h-100 project">
-              <div class="d-flex h-100">
-                <div class="project-text w-100 my-auto text-center text-lg-center">
-                  <h4 th:text="${movie.getRelease()}" class="text-white"></h4>
-                  <p th:text="${movie.getGenre()}" class="mb-0 text-white-50"> </p>
-                  <hr class="d-none d-lg-block mb-0 ">
-                  <br>
-                  <h4 class="text-white"><span th:text="${movie.getAverageScore()}"></span>/10</h4>
+                <!-- movie title and summary? -->
+                <div class="col-lg-4 order-lg-first">
+                    <div class="text-center h-100 project">
+                        <div class="d-flex h-100">
+                            <div class="project-text w-100 my-auto text-center text-lg-center">
+                                <h4 th:text="${movie.getTitle()}" class="text-white"></h4>
+                                <p th:text="${movie.getSummary()}" class="mb-0 text-white-50"></p>
+                                <hr class="d-none d-lg-block mb-0 ">
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
+                <!-- movie release date -->
+                <div class="col-lg-4 order-lg-first">
+                    <div class="text-center h-100 project">
+                        <div class="d-flex h-100">
+                            <div class="project-text w-100 my-auto text-center text-lg-center">
+                                <h4 th:text="${movie.getRelease()}" class="text-white"></h4>
+                                <p th:text="${movie.getGenre()}" class="mb-0 text-white-50"></p>
+                                <hr class="d-none d-lg-block mb-0 ">
+                                <br>
+                                <h4 class="text-white"><span th:text="${movie.getAverageScore()}"></span>/10</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
 
-        <a th:href="@{/view(name=${movie.getTitle()})}"  style="display:none;"></a>
-      </section><!-- closes movie section -->
+            <a th:href="@{/view(name=${movie.getTitle()})}" style="display:none;"></a>
+        </section><!-- closes movie section -->
 
 
         <section class="container d-flex h-100 align-items-center">
             <div class="mx-auto text-center">
-              <a href="#page-top" class="btn btn-primary js-scroll-trigger">Back to Top</a>
+                <a href="#page-top" class="btn btn-primary js-scroll-trigger">Back to Top</a>
             </div>
         </section>
 
-      </article><!-- close movies article -->
+    </article><!-- close movies article -->
 
-  </main><!--close main content div -->
+</main><!--close main content div -->
 
 
-  <!-- Footer -->
-  <footer class="bg-black small text-center text-white-50">
+<!-- Footer -->
+<footer class="bg-black small text-center text-white-50">
     <div class="container">
-      <div class="social d-flex justify-content-center">
-        <a href="#" class="mx-2">
-          <i class="fab fa-twitter"></i>
-        </a>
-        <a href="#" class="mx-2">
-          <i class="fab fa-facebook-f"></i>
-        </a>
-        <a href="#" class="mx-2">
-          <i class="fab fa-github"></i>
-        </a>
-      </div>
-      Copyright &copy; Method to the Madness 2019
+        <div class="social d-flex justify-content-center">
+            <a href="#" class="mx-2">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="mx-2">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="mx-2">
+                <i class="fab fa-github"></i>
+            </a>
+        </div>
+        Copyright &copy; Method to the Madness 2019
     </div>
 
-  </footer><!--close footer div-->
+</footer><!--close footer div-->
 
-  <!-- Bootstrap core JavaScript -->
-  <script src="https://code.jquery.com/jquery-3.4.0.slim.min.js" integrity="sha256-ZaXnYkHGqIhqTbJ6MB4l9Frs/r7U4jlx7ir8PJYBqbI="crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<!-- Bootstrap core JavaScript -->
+<script src="https://code.jquery.com/jquery-3.4.0.slim.min.js"
+        integrity="sha256-ZaXnYkHGqIhqTbJ6MB4l9Frs/r7U4jlx7ir8PJYBqbI=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+        integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
 
 </body>
 

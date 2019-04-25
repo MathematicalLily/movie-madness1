@@ -63,6 +63,9 @@ public class User {
         this.joinDate = joinDate;
     }
 
+    public User() {
+    }
+
     public User(int id, int age, String username, String password, String name, String email, String joinDate) {
         this.id = id;
         this.age = age;
@@ -71,8 +74,6 @@ public class User {
         this.name = name;
         this.email = email;
         this.joinDate = joinDate;
-    }
-    public User() {
     }
 
     public static Comparator<User> userIdComparator = new Comparator<User>() {
@@ -83,6 +84,7 @@ public class User {
             return Integer.compare(user1, user2);
         }
     };
+
     public static Comparator<User> ageComparator = new Comparator<User>() {
         @Override
         public int compare(User u1, User u2) {
@@ -92,6 +94,7 @@ public class User {
             return Integer.compare(user1, user2);
         }
     };
+
     public static Comparator<User> usernameComparator = new Comparator<User>() {
         @Override
         public int compare(User u1, User u2) {
@@ -100,6 +103,7 @@ public class User {
             return user1.compareTo(user2);
         }
     };
+
     public static Comparator<User> passwordComparator = new Comparator<User>() {
         @Override
         public int compare(User u1, User u2) {
@@ -109,6 +113,7 @@ public class User {
             return user1.compareTo(user2);
         }
     };
+
     public static Comparator<User> nameComparator = new Comparator<User>() {
         @Override
         public int compare(User u1, User u2) {
@@ -118,6 +123,7 @@ public class User {
             return user1.compareTo(user2);
         }
     };
+
     public static Comparator<User> emailComparator = new Comparator<User>() {
         @Override
         public int compare(User u1, User u2) {
@@ -127,6 +133,7 @@ public class User {
             return user1.compareTo(user2);
         }
     };
+
     public static Comparator<User> joinDateComparator = new Comparator<User>() {
         @Override
         public int compare(User u1, User u2) {
@@ -136,6 +143,5 @@ public class User {
             return user1.compareTo(user2);
         }
     };
-
 
 }

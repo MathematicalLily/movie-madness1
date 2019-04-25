@@ -65,6 +65,9 @@ public class Review {
         this.date = date;
     }
 
+    public Review() {
+    }
+
     public Review(int id, int userID, int movieID, int rating, String comment, String date) {
         this.id = id;
         this.userID = userID;
@@ -74,8 +77,6 @@ public class Review {
         this.date = date;
     }
 
-    public Review() {
-    }
     public static Comparator<Review> idComparator = new Comparator<Review>() {
         @Override
         public int compare(Review r1, Review r2) {
@@ -84,6 +85,7 @@ public class Review {
             return Integer.compare(review1, review2);
         }
     };
+
     public static Comparator<Review> userIDComparator = new Comparator<Review>() {
         @Override
         public int compare(Review r1, Review r2) {
@@ -92,6 +94,7 @@ public class Review {
             return Integer.compare(review1, review2);
         }
     };
+
     public static Comparator<Review> movieIDComparator = new Comparator<Review>() {
         @Override
         public int compare(Review r1, Review r2) {
@@ -100,6 +103,7 @@ public class Review {
             return Integer.compare(review1, review2);
         }
     };
+
     public static Comparator<Review> ratingComparator = new Comparator<Review>() {
         @Override
         public int compare(Review r1, Review r2) {
@@ -108,6 +112,7 @@ public class Review {
             return Integer.compare(review1, review2);
         }
     };
+
     public static Comparator<Review> commentComparator = new Comparator<Review>() {
         @Override
         public int compare(Review r1, Review r2) {
@@ -116,6 +121,7 @@ public class Review {
             return review1.compareTo(review2);
         }
     };
+
     public static Comparator<Review> dateComparator = new Comparator<Review>() {
         @Override
         public int compare(Review r1, Review r2) {

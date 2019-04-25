@@ -1,7 +1,5 @@
 package m2them.moviemadness;
 
-import java.util.ArrayList;
-
 public class ReviewSort {
 
     private int sortType;

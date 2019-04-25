@@ -15,4 +15,5 @@ public class SortType {
     public SortType(int sortType) {
         this.sortType = sortType;
     }
+
 }

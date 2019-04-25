@@ -43,15 +43,19 @@ public class Actor {
         return imageURL;
     }
 
-    public void setRole(String role) { this.role = role;}
+    public void setRole(String role) {
+        this.role = role;
+    }
 
-    public String getRole (){
+    public String getRole() {
         return role;
     }
 
-
     public void setImageURL(String imageURL) {
         this.imageURL = imageURL;
+    }
+
+    public Actor() {
     }
 
     public Actor(int id, int age, String name, String gender, String imageURL, String role) {
@@ -63,8 +67,6 @@ public class Actor {
         this.role = role;
     }
 
-    public Actor() {
-    }
     public static Comparator<Actor> idComparator = new Comparator<Actor>() {
         @Override
         public int compare(Actor a1, Actor a2) {
@@ -73,6 +75,7 @@ public class Actor {
             return Integer.compare(actor1, actor2);
         }
     };
+
     public static Comparator<Actor> ageComparator = new Comparator<Actor>() {
         @Override
         public int compare(Actor a1, Actor a2) {
@@ -81,6 +84,7 @@ public class Actor {
             return Integer.compare(actor1, actor2);
         }
     };
+
     public static Comparator<Actor> nameComparator = new Comparator<Actor>() {
         @Override
         public int compare(Actor a1, Actor a2) {
@@ -89,6 +93,7 @@ public class Actor {
             return actor1.compareTo(actor2);
         }
     };
+
     public static Comparator<Actor> genderComparator = new Comparator<Actor>() {
         @Override
         public int compare(Actor a1, Actor a2) {
@@ -97,6 +102,7 @@ public class Actor {
             return actor1.compareTo(actor2);
         }
     };
+
     public static Comparator<Actor> imgURLComparator = new Comparator<Actor>() {
         @Override
         public int compare(Actor a1, Actor a2) {
@@ -105,4 +111,5 @@ public class Actor {
             return actor1.compareTo(actor2);
         }
     };
+
 }

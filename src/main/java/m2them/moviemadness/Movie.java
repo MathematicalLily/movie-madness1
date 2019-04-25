@@ -13,9 +13,6 @@ public class Movie {
             movieGenre, movieRelease, movieImageURL, movieTrailerURL;
     private double averageScore;
 
-    public Movie() {
-    }
-
     public int getId() {
         return movieId;
     }
@@ -88,6 +85,9 @@ public class Movie {
         this.averageScore = averageScore;
     }
 
+    public Movie() {
+    }
+
     public Movie(int movieId, String title, String summary, String duration, String genre, String release, String imageURL, String trailerURL) {
         this.movieId = movieId;
         this.movieTitle = title;
@@ -98,7 +98,6 @@ public class Movie {
         this.movieImageURL = imageURL;
         this.movieTrailerURL = trailerURL;
     }
-
 
     public static Comparator<Movie> idComparator = new Comparator<Movie>() {
         @Override
@@ -185,6 +184,7 @@ public class Movie {
             return Double.compare(o2.averageScore, o1.averageScore);
         }
     };
+
 }
 
 

@@ -1,8 +1,6 @@
 package m2them.moviemadness;
 
-import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
@@ -47,9 +45,8 @@ public class MovieController {
         return "index";
     }
 
-
     //request mapping
-    @RequestMapping(value = "/view", method =  RequestMethod.GET)
+    @RequestMapping(value = "/view", method = RequestMethod.GET)
     public String moviePage(Model model, @RequestParam("name") String title) {
 
         Movie movie = Database.getMovieByTitle(title);
@@ -67,7 +64,7 @@ public class MovieController {
     }
 
     @RequestMapping("/view")
-    public String reviewSort(Model model, @ModelAttribute("reviewSort") ReviewSort reviewSort){
+    public String reviewSort(Model model, @ModelAttribute("reviewSort") ReviewSort reviewSort) {
 
         Movie movie = Database.getMovieByTitle(reviewSort.getMovieName());
         ArrayList<Actor> actors = Database.getActorsByMovie(movie);
@@ -93,7 +90,6 @@ public class MovieController {
         model.addAttribute("reviewSort", new ReviewSort(reviewSort.getSortType(), movie.getTitle()));
         return "movie";
     }
-
 
 }
 

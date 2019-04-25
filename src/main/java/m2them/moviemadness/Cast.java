@@ -4,11 +4,8 @@ import java.util.Comparator;
 
 public class Cast {
 
-
-
     private int id, movieID, actorID;
     private String role;
-
 
     public int getId() {
         return id;
@@ -42,14 +39,15 @@ public class Cast {
         this.role = role;
     }
 
+    public Cast() {
+    }
+
     public Cast(int id, int movieID, int actorID) {
         this.id = id;
         this.movieID = movieID;
         this.actorID = actorID;
     }
 
-    public Cast() {
-    }
     public static Comparator<Cast> idComparator = new Comparator<Cast>() {
         @Override
         public int compare(Cast c1, Cast c2) {
@@ -58,6 +56,7 @@ public class Cast {
             return Integer.compare(cast1, cast2);
         }
     };
+
     public static Comparator<Cast> movieIDComparator = new Comparator<Cast>() {
         @Override
         public int compare(Cast c1, Cast c2) {
@@ -66,6 +65,7 @@ public class Cast {
             return Integer.compare(cast1, cast2);
         }
     };
+
     public static Comparator<Cast> actorIDComparator = new Comparator<Cast>() {
         @Override
         public int compare(Cast c1, Cast c2) {
@@ -74,4 +74,5 @@ public class Cast {
             return Integer.compare(cast1, cast2);
         }
     };
+
 }

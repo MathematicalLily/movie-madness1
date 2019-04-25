@@ -9,10 +9,8 @@ import java.sql.*;
 import static java.lang.Class.forName;
 
 
-
 @SuppressWarnings("Duplicates")
 public class Database {
-
 //Author Sanjay
 
     static Connection connectDB() {
@@ -30,7 +28,6 @@ public class Database {
 
         return con;
     }
-
 
     public static ArrayList<Actor> getActors(Connection con) {
         ArrayList<Actor> actors = new ArrayList<>();
@@ -116,7 +113,7 @@ public class Database {
     }
 
     //Authors:Ingrid & Tom
-    public static ArrayList<Actor> getActorsByMovie(Movie movie){
+    public static ArrayList<Actor> getActorsByMovie(Movie movie) {
 
         Connection con = connectDB();
         ArrayList<Actor> actors = new ArrayList<>();
@@ -133,7 +130,7 @@ public class Database {
             ResultSet rs = stmt.executeQuery(getActorsByMovieQuery);
 
             while (rs.next()) {
-                Actor actor =new Actor();
+                Actor actor = new Actor();
                 actor.setId(Integer.parseInt(
                         rs.getString("actor_id")));
                 actor.setName(rs.getString("actor_name"));
@@ -178,7 +175,7 @@ public class Database {
             ResultSet rs = stmt.executeQuery(getReviewByMovieQuery);
 
             while (rs.next()) {
-                Review review =new Review();
+                Review review = new Review();
                 review.setId(Integer.parseInt(
                         rs.getString("review_id")));
                 review.setComment(rs.getString("review_comment"));
@@ -263,7 +260,7 @@ public class Database {
             return 0.0d;
         }
 
-        for (Review review: reviews) {
+        for (Review review : reviews) {
             scores[reviews.indexOf(review)] = review.getRating();
         }
 
@@ -273,48 +270,48 @@ public class Database {
             ratingTotal += scores[i];
         }
 
-        double average = (double) Math.round((ratingTotal/scores.length) * 10);
-        average = average/10;
+        double average = (double) Math.round((ratingTotal / scores.length) * 10);
+        average = average / 10;
 
         return average;
 
     }
 
-//Sanjay
-        public static ArrayList<Cast> getCasts(Connection con) {
-            ArrayList<Cast> casts = new ArrayList<>();
-            Statement stmt = null;
+    //Sanjay
+    public static ArrayList<Cast> getCasts(Connection con) {
+        ArrayList<Cast> casts = new ArrayList<>();
+        Statement stmt = null;
 
-            try {
-                String getCastsQuery = "SELECT * FROM tblMovieCast";
-                stmt = con.createStatement();
-                ResultSet rs = stmt.executeQuery(getCastsQuery);
+        try {
+            String getCastsQuery = "SELECT * FROM tblMovieCast";
+            stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery(getCastsQuery);
 
-                while (rs.next()) {
+            while (rs.next()) {
 
-                    Cast cast = new Cast();
-                    cast.setId(Integer.parseInt(
-                            rs.getString("movie_cast_id")));
-                    cast.setMovieID(Integer.parseInt(rs.getString("movie_id")));
-                    cast.setActorID(Integer.parseInt(rs.getString("actor_id")));
-
-
-                    casts.add(cast);
-                }
+                Cast cast = new Cast();
+                cast.setId(Integer.parseInt(
+                        rs.getString("movie_cast_id")));
+                cast.setMovieID(Integer.parseInt(rs.getString("movie_id")));
+                cast.setActorID(Integer.parseInt(rs.getString("actor_id")));
 
 
-            } catch (Exception ex) {
-                System.out.println(ex.getClass());
-                ex.printStackTrace();
-            } finally {
-                try {
-                    stmt.close();
-                    con.close();
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
+                casts.add(cast);
             }
-            return casts;
+
+
+        } catch (Exception ex) {
+            System.out.println(ex.getClass());
+            ex.printStackTrace();
+        } finally {
+            try {
+                stmt.close();
+                con.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return casts;
     }
 
     public static ArrayList<User> getUsers(Connection con) {
@@ -394,8 +391,6 @@ public class Database {
         }
         return reviews;
     }
-
-
 
 }
 

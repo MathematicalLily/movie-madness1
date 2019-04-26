@@ -5,17 +5,18 @@ import java.util.Comparator;
 import java.util.Date;
 
 //author Lily
-
+//this class holds one movie from the database
 public class Movie {
 
+    //the information held on each movie
     private int movieId;
     private String movieTitle, summary, movieDuration,
             movieGenre, movieRelease, movieImageURL, movieTrailerURL;
+    //each movie, on top of info from database above,
+    //holds its average score (so that it can be displayed on website)
     private double averageScore;
 
-    public Movie() {
-    }
-
+    //generic getters, setters, contructors
     public int getId() {
         return movieId;
     }
@@ -88,6 +89,9 @@ public class Movie {
         this.averageScore = averageScore;
     }
 
+    public Movie() {
+    }
+
     public Movie(int movieId, String title, String summary, String duration, String genre, String release, String imageURL, String trailerURL) {
         this.movieId = movieId;
         this.movieTitle = title;
@@ -99,16 +103,10 @@ public class Movie {
         this.movieTrailerURL = trailerURL;
     }
 
+    //comparators
 
-    public static Comparator<Movie> idComparator = new Comparator<Movie>() {
-        @Override
-        public int compare(Movie m1, Movie m2) {
-            int movie1 = m1.movieId;
-            int movie2 = m2.movieId;
-            return Integer.compare(movie1, movie2);
-        }
-    };
-
+    //compares the titles of two movies, using the in-built string compare method
+    //(after converting both titles to lower case)
     public static Comparator<Movie> titleComparator = new Comparator<Movie>() {
         @Override
         public int compare(Movie m1, Movie m2) {
@@ -118,73 +116,37 @@ public class Movie {
         }
     };
 
-    public static Comparator<Movie> summaryComparator = new Comparator<Movie>() {
-        @Override
-
-        public int compare(Movie m1, Movie m2) {
-            String movie1 = m1.summary.toLowerCase();
-            String movie2 = m2.summary.toLowerCase();
-            return movie1.compareTo(movie2);
-        }
-    };
-
-    public static Comparator<Movie> durationComparator = new Comparator<Movie>() {
-        @Override
-        public int compare(Movie m1, Movie m2) {
-            String movie1 = m1.movieDuration;
-            String movie2 = m2.movieDuration;
-            return movie1.compareTo(movie2);
-        }
-    };
-
-    public static Comparator<Movie> genreComparator = new Comparator<Movie>() {
-        @Override
-        public int compare(Movie m1, Movie m2) {
-            String movie1 = m1.movieGenre;
-            String movie2 = m2.movieGenre;
-            return movie1.compareTo(movie2);
-        }
-    };
-
-    public static Comparator<Movie> releaseComparator = new Comparator<Movie>() {
-        @Override
-        public int compare(Movie m1, Movie m2) {
-            SimpleDateFormat sdf = new SimpleDateFormat("dd MMM yyyy");
-            Date movie1 = null, movie2 = null;
-            try {
-                movie1 = sdf.parse(m1.movieRelease);
-                movie2 = sdf.parse(m2.movieRelease);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return movie2.compareTo(movie1);
-        }
-    };
-
-    public static Comparator<Movie> ImageURLComparator = new Comparator<Movie>() {
-        @Override
-        public int compare(Movie m1, Movie m2) {
-            String movie1 = m1.movieImageURL;
-            String movie2 = m2.movieImageURL;
-            return movie1.compareTo(movie2);
-        }
-    };
-
-    public static Comparator<Movie> TrailerURLComparator = new Comparator<Movie>() {
-        @Override
-        public int compare(Movie m1, Movie m2) {
-            String movie1 = m1.movieTrailerURL;
-            String movie2 = m2.movieTrailerURL;
-            return movie1.compareTo(movie2);
-        }
-    };
-
+    //compares average score using the in-built double compare method
     public static Comparator<Movie> scoreComparator = new Comparator<Movie>() {
         @Override
         public int compare(Movie o1, Movie o2) {
             return Double.compare(o2.averageScore, o1.averageScore);
         }
     };
+
+
+    public static Comparator<Movie> releaseComparator = new Comparator<Movie>() {
+        @Override
+        public int compare(Movie m1, Movie m2) {
+            //defines the pattern used to display the dates in the database
+            //eg "01 Jan 2000" in this case
+            SimpleDateFormat sdf = new SimpleDateFormat("dd MMM yyyy");
+
+            //set empty date objects here to be filled inside the try
+            Date movie1 = null, movie2 = null;
+            try {
+                //attempt to turn each written release date into a Date object
+                movie1 = sdf.parse(m1.movieRelease);
+                movie2 = sdf.parse(m2.movieRelease);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            //compare using the Date object's in-built comparator
+            return movie2.compareTo(movie1);
+        }
+    };
+
 }
 
 

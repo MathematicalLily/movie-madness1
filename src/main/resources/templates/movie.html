@@ -28,7 +28,7 @@
 <body id="page-top">
 
 <!-- Navigation -->
-        <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav" href="#page-top">
+        <nav class="navbar navbar-expand-lg navbar-light fixed-top bg-dark" id="mainNav" href="#page-top">
             <div class="container">
                 <a class="navbar-brand ajs-scroll-trigger" href="/">
                     <img class="navbar-logo" th:src="@{/img/m2them_logo.svg}" alt="">
@@ -43,12 +43,6 @@
                             <a class="nav-link js-scroll-trigger" href="/#movies">Movies</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" href="#">About</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" href="#">Contact</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link js-scroll-trigger" href="#">Login</a>
                         </li>
                     </ul>
@@ -57,62 +51,89 @@
         </nav>
 
         <!-- Header -->
-        <header class="masthead">
-            <div class="container d-flex h-100 align-items-center">
-                <div class="mx-auto text-center">
+        <header class="masthead-review">
+            <div class="container d-flex align-items-center">
+                    <article class="bg-black movieBox" style="cursor: pointer;">
+                        <!-- movie image -->
+                        <div class="row justify-content-center no-gutters">
+                            <div class="col-lg-3 order-lg-first">
+                                <div class="text-center h-100">
+                                    <div class="h-100">
+                                        <img th:src="${movie.getImageURL()}" class="img-fluid movies-section-img" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- movie title and summary? -->
+                            <div class="col-lg-5 order-lg-first">
+                                <div class="text-center h-100">
+                                    <div class="d-flex h-100">
+                                        <div class="project-text w-100 my-auto px-5 text-center text-lg-center">
+                                            <h4 th:text="${movie.getTitle()}" class="text-white py-3"></h4>
+                                            <p th:text="${movie.getSummary()}" class="mb-0 text-white-50 py-3"></p>
+                                            <hr class="d-none d-lg-block mb-0 ">
+                                            <br>
+                                        </div>
 
 
-                    <h1 th:text="${movie.getTitle()}" class="mx-auto my-0 text-uppercase"></h1>
-                    <br>
-
-                    <h2 th:text="${'Avg Rating: ' + movie.getAverageScore()}" class="text-white mx-auto my-0"></h2>
-
-                    <br>
-                    <h4 th:text="${'Genre: ' + movie.getGenre()}" class="mx-auto my-0 text-white"></h4>
-                    <br>
-
-                    <p th:text="${movie.getSummary()}" class="text-white-50 mx-auto col-sm-6"></p>
-
-
-                    <br>
-                    <a href="#reviews" class="btn btn-primary js-scroll-trigger">User Reviews</a>
-
-                </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- movie release date -->
+                            <div class="col-lg-4 order-lg-first">
+                                <div class="h-100">
+                                    <div class="d-flex h-100">
+                                        <div class="project-text w-100 my-auto px-5">
+                                            <h4 th:text="${movie.getRelease()}" class="text-white"></h4>
+                                            <p th:text="${movie.getGenre()}" class="mb-0 text-white-50"> </p>
+                                            <hr class="d-none d-lg-block mb-0 mx-0">
+                                            <br>
+                                            <h4 class="text-white"><span th:text="${'Score: ' + movie.getAverageScore()}"></span>/10</h4>
+                                            <a href="#reviews" class="btn btn-primary js-scroll-trigger mt-5">User Reviews</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
             </div>
         </header>
 
         <main id="cast">
 
-            <div class="container">
-                <section class="row d-flex h-100 align-items-center container bg-light">
-                    <div class="mx-auto text-center col order-lg-first">
+            <div class="container mb-5">
+                <!--       h-100 = makes element a percentage height of it's parent element-->
+                <section class="row d-flex align-items-center">
+                    <!--            mx-auto = centers element horizontally    -->
+                    <div class="mx-auto cast-div text-center col-lg-4">
                         <h2> Cast</h2>
                     </div>
                 </section>
                 <section class="row d-flex h-100 align-items-center container bg-light">
                     <div th:each="actor:${actors}"  class="col order-lg-first">
-                        <div class="bg-black text-center h-100 project">
+                        <div class="text-center h-100 project">
                             <div class="d-flex h-100">
                                 <div class="project-text w-100 my-auto text-center text-lg-center">
-                                    <h4 th:text="${actor.getName()}" class="text-white"></h4>
-                                    <img th:src="${actor.getImageURL()}" class="mb-0 text-white-50" style="max-height: 200px; height:100%;">
-                                    <h4 th:text="${actor.getAge()}" class="text-white"></h4>
-                                    <h4 th:text="${actor.getRole()}" class="text-white"></h4>
+                                    <h4 th:text="${actor.getName()}" class="py-2"></h4>
+                                    <img th:src="${actor.getImageURL()}" class="my-2 " style="max-height: 260px; height:100%;">
+                                    <h4 th:text="${'age: ' + actor.getAge()}" class="py-2"></h4>
+                                    <h4 th:text="${actor.getRole()}" class="py-2"></h4>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </section>
             </div>
-
-            <div id="reviews" class="container">
-                <section class="row d-flex h-100 align-items-center container bg-light">
-                    <div class="mx-auto text-center col-lg-4 order-lg-first">
-                        <h2 id="#reviews"> Reviews</h2>
-                    </div>
-                    <div class="col-lg-4 order-lg-first">
-                        <label>Order Reviews by:</label>
-
+            <!--User reviews container-->
+            <div id="reviews" class="container my-5">
+                    <!--h-100 = makes element a percentage height of it's parent element-->
+                    <section class="row d-flex align-items-center">
+                        <!-- mx-auto = centers element horizontally    -->
+                        <div class="mx-auto mt-5 mb-3 text-center col-lg-4">
+                            <h2>User Reviews</h2>
+                        </div>
+                    </section>
+                <section class="row d-flex align items-center" >
+                    <div class="col-lg-4 mx-auto">
                         <form th:action="@{#reviews}" method="post" th:object="${reviewSort}">
                             <select onchange="this.form.submit()" th:field="*{sortType}" class="custom-select custom-select-lg mb-3">
                                 <option selected th:value="1">Most Recent</option>
@@ -129,39 +150,27 @@
 
 
             <!-- movies section, the movie object that will be repeated for every instance-->
-            <section th:each="review:${reviews}" id="" class="container">
-                <!-- movie image -->
-                <div class="row justify-content-center no-gutters mb-5">
+            <section th:each="review:${reviews}" id="" class="container bg-light" style="padding: 4rem 2rem; margin-bottom: 2rem;">
+                <div class="row justify-content-center  d-flex no-gutters mb-4 project-text w-100 my-auto text-center text-lg-center">
                     <!-- userName and comment? -->
-                    <div class="col-lg-8 order-lg-first">
-                        <div class="bg-black text-center h-100 project">
-                            <div class="d-flex h-100">
-                                <div class="project-text w-100 my-auto text-center text-lg-center">
-                                    <h3 th:text="${review.getUsername()}" class="text-white"></h3>
-                                    <h4 th:text="${'Score: ' + review.getRating()}" class="text-white"></h4>
-                                    <p th:text="${review.getComment()}" class="mb-0 text-white-50"></p>
-                                    <hr class="d-none d-lg-block mb-0 ">
-                                </div>
-                            </div>
-                        </div>
+                    <div class="col-lg-4 mb-3">
+                        <h3 th:text="${review.getDate()}" class=""></h3>
                     </div>
-                    <!-- movie release date -->
-                    <div class="col-lg-2 order-lg-first">
-                        <div class="bg-black text-center h-100 project">
-                            <div class="d-flex h-100">
-                                <div class="project-text w-100 my-auto text-center text-lg-center">
-                                    <h4 th:text="${review.getDate()}" class="text-white"></h4>
-                                    <hr class="d-none d-lg-block mb-0">
-                                </div>
-                            </div>
-                        </div>
+                    <div class="col-lg-4">
+                        <h3 th:text="${'|  ' + review.getUsername() + '  |'}" class=""></h3>
+                    </div>
+                    <div class="col-lg-4">
+                        <h3 th:text="${'Score: ' + review.getRating()}" class=""></h3>
                     </div>
                 </div>
+                <div class="row justify-content-center  d-flex no-gutters mb-5 project-text w-100 my-auto text-center text-lg-center" style="max-height:200px; overflow:scroll;">
+                        <p th:text="${review.getComment()}" class="mb-0"></p>
+                 </div>
             </section><!-- closes movie section -->
 
 
             <section class="container d-flex h-100 align-items-center">
-                <div class="mx-auto text-center">
+                <div class="mx-auto text-center mb-5">
                     <a href="#page-top" class="btn btn-primary js-scroll-trigger">Back to Top</a>
                 </div>
             </section>
@@ -194,8 +203,10 @@
 
 <!-- Bootstrap core JavaScript -->
 <script src="https://code.jquery.com/jquery-3.4.0.slim.min.js" integrity="sha256-ZaXnYkHGqIhqTbJ6MB4l9Frs/r7U4jlx7ir8PJYBqbI="crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
 
 </body>
 
